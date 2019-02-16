@@ -23,13 +23,13 @@
 define('DB_NAME', 'website');
 
 /** MySQL database username */
-define('DB_USER', 'drsanjaydoshi');
+define('DB_USER', 'drdoshi');
 
 /** MySQL database password */
 define('DB_PASSWORD', 'Capstone2019');
 
 /** MySQL hostname */
-define('DB_HOST', 'p2p4health-cluster.cluster-citxpawxscki.us-east-1.rds.amazonaws.com');
+define('DB_HOST', 'p2p4health.citxpawxscki.us-east-1.rds.amazonaws.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -46,14 +46,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'n}:Q)e}eDG9_ORPmE<dknHy~ZKV++l^ 90yXRCp#(T;3QC65(PK :uf$W1ymO]TL');
-define('SECURE_AUTH_KEY',  '1-E0kVzcK-P&fOM>[8R(F]^g1G^s*BhQy=*h&>&:c(?T<!rrXx8SO#9U=N@9 16 ');
-define('LOGGED_IN_KEY',    'E|W4ly5#5Pjdb|atEe=`<C/u<R(@1>[$~;B@9 ]C`& zuj2o[ebK78f*#HKID:PV');
-define('NONCE_KEY',        '+4{It(]K?[bx/#@D|k/rI0bD3fS^Z7!A(nm5{L*T5S(6L>KV8Ehu#Pg IXWj(2)p');
-define('AUTH_SALT',        'LK#kalQX;e0V|8+Akx`Lv!)&HyJ~XP R_W`3YYPd,*DEBq%,Dslq!za`v?n>DuZ-');
-define('SECURE_AUTH_SALT', '[myZe rFa$=ekP0&h{G=}g?0mLfHFY+neD>%@.IS b]#B-8j<wJu`-%yEff~J?#d');
-define('LOGGED_IN_SALT',   'wvGB]X^RR0VhS?d9r^c0PA6_ [y)%>v6?_NTva%kphO (I%Tf/8(MwuFc8nBxT@9');
-define('NONCE_SALT',       'T#quKd:Ss{<iu(g{:Kr|;^/uyYp;jkmUI0|vf_8QkO.@ZH12Vf9b9*qd/jfk=7P|');
+define('AUTH_KEY',         'bvt2^|z yx:^Zy! ro.l<p+r>@a:9*$&Xb*k:FR8(L.`HvgE2l+x 1F]WNkB5=Wj');
+define('SECURE_AUTH_KEY',  '`mz<!8,2k&^A>7r5WG3OBSYf}pvO0Gn^z,kW/IMnO?S|lw6Dv%.f lx)+xcI7^w+');
+define('LOGGED_IN_KEY',    '$ k<ZXQv&EWObbz}0?0/ce1(}|<cSpPqs>&boF9=9$rC&eU*OT[,3Y0E^6PW~nl#');
+define('NONCE_KEY',        'D ]w~Q3n0*)U&AP@Qk0odXYLw=/e9P/DXLNW(-c+.PLx@3rJ+KRnU+p1j-Uq_{?C');
+define('AUTH_SALT',        '..vf.B`1 ~r(KIqy/R@OjE!mYvy>#=2E:Qz~#/bauv%X~EAYP72eeq389KxJ!nBa');
+define('SECURE_AUTH_SALT', 'wPL-qyf9=#54u{@J|4^2|@?0?565v/BLRf-: IV6/</oEn@tJ|MR@tq~S_ES3hFS');
+define('LOGGED_IN_SALT',   '02mAj*q|@22elB_Cf[+)nIsW#|66{AZ<2s;b7*s>X^|j)Ja|  phZ8A^lta0oB/a');
+define('NONCE_SALT',       '@xQ %Bn>t@Me4G#>t!G&YEkW(FGaPc]/17?y%10,/Q4&cD;d;.750@w.O<HXl061');
 
 /**#@-*/
 
@@ -63,7 +63,7 @@ define('NONCE_SALT',       'T#quKd:Ss{<iu(g{:Kr|;^/uyYp;jkmUI0|vf_8QkO.@ZH12Vf9b
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'website_';
+$table_prefix  = 'wp_';
 
 /**
  * For developers: WordPress debugging mode.
