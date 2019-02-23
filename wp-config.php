@@ -29,7 +29,7 @@ define('DB_USER', 'drdoshi');
 define('DB_PASSWORD', 'Capstone2019');
 
 /** MySQL hostname */
-define('DB_HOST', 'p2p4health.citxpawxscki.us-east-1.rds.amazonaws.com');
+define('DB_HOST', 'p2p4health.ctanp6omo8da.us-west-1.rds.amazonaws.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -78,6 +78,8 @@ $table_prefix  = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
+
+define('RELOCATE',true);
 
 /* That's all, stop editing! Happy blogging. */
 
