@@ -130,9 +130,16 @@ class PM_Messenger {
         $dbhandler = new PM_DBhandler;
         $pmrequests = new PM_request;
         $current_user = wp_get_current_user();
-            $rid = $rid;
-            $sid = $current_user->ID;
-            $content = $content;
+        $rid = $rid;
+        $sid = $current_user->ID;
+        $content = $content;
+
+        //Check if rid is valid
+        //********** TEST CODE Capstone 2018 **********
+        if($rid != 2) {
+            $return =  __("not sent","profile-magic");
+        }
+        else {
             $is_msg_sent = $pmrequests->pm_create_message($sid, $rid, $content);
             $tid=$pmrequests->get_thread_id($sid, $rid);
             $message = $pmrequests->get_message_of_thread($tid,1);
@@ -143,11 +150,12 @@ class PM_Messenger {
                 $user_info['avatar'] = get_avatar($sid, 50, '', false, array('class' => 'pm-user-profile'));
                 $return .= "<div id=\"$message_id\" class=\"$align  pm-sending-msg\" > " .
                         $user_info['avatar']
-                       . "<div class=\"pm-user-description-row pm-dbfl pm-border\">" . stripslashes($last_message) . "</div>".__("Sending","profile-magic")."</div>";
+                        . "<div class=\"pm-user-description-row pm-dbfl pm-border\">" . stripslashes($last_message) . "</div>".__("Sending","profile-magic")."</div>";
                 
             } else {
                 $return =  __("not sent","profile-magic");
             }
+        }
       return $return;
        
     }

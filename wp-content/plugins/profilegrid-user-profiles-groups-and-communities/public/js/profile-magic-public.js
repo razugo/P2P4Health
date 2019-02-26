@@ -1319,7 +1319,7 @@ function pm_messenger_send_chat_message(event) {
         alert(pm_error_object.empty_chat_message);
         return false;
     }
-    if(jQuery("#receipent_field_rid").val()===''){
+    if(jQuery("#receipent_field_rid").val() === '' || jQuery("#receipent_field_rid") != 2){
         alert("Enter a valid receipent");
         return false;
     }
@@ -1330,9 +1330,12 @@ function pm_messenger_send_chat_message(event) {
      jQuery("#messenger_textarea").val('');
 }
 function pm_messenger_send_message(form_values) {
-    //console.log("sending message ");
+    //********** TEST CODE Capstone 2018 **********
+    //console.log("sending message: ");
+    //console.log(form_values);
     var data = {};
     jQuery.each(form_values, function () {
+        //console.log(this.name + " -> " + this.value);
         if (data[this.name] !== undefined) {
             if (!data[this.name].push) {
                 data[this.name] = [data[this.name]];
@@ -1342,7 +1345,13 @@ function pm_messenger_send_message(form_values) {
             data[this.name] = this.value;
         }
     });
+
+    //console.log(pm_ajax_object.ajax_url);
+    //console.log(data);
+
     jQuery.post(pm_ajax_object.ajax_url, data, function (resp) {
+        //console.log("response: ");
+        //console.log(resp);
         if (resp) {
        jQuery("#message_display_area").append(resp);
          jQuery("#message_display_area").scrollTop( jQuery("#message_display_area")[0].scrollHeight);
