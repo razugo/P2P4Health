@@ -935,7 +935,7 @@ class Profile_Magic_Public {
     $pmrequests = new PM_request;
     $uid = wp_get_current_user()->ID;
     $name = filter_input(INPUT_POST, 'name');
-    $meta_args = array('status'=>'0');
+    $meta_args = array('gid'=>2);
     $search =$name; 
     $limit = 20;
     $exclude = array();
