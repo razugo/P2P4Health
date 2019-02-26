@@ -2831,6 +2831,18 @@ class PM_request {
            return '<span title="'.__('Author is suspended','profile-magic').'">'.$name.'</span>';
        }
     }
+
+    //********** TEST CODE Capstone 2018 **********
+    //retrieve all providers
+    public function pm_get_all_providers() {
+        $dbhandler = new PM_DBhandler;
+        $current_user = wp_get_current_user();
+        $get = array('gid'=> 2);
+        $meta_query_array = $this->pm_get_user_meta_query($get);
+        $user_query =  $dbhandler->pm_get_all_users_ajax('',$meta_query_array,'',0,100000,'DESC','ID');
+        $users = $user_query->get_results();
+        return $users;
+    }
                 
     public function pm_get_all_users_from_group($gid,$pagenum=1,$limit=10,$sort_by='first_name_asc',$search_in='user_login',$search='')
     {

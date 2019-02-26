@@ -127,19 +127,6 @@ class PM_Messenger {
     
     }
 
-    //********** TEST CODE Capstone 2018 **********
-    //retrieve all providers
-    public function pm_get_all_providers() {
-        $dbhandler = new PM_DBhandler;
-        $pmrequests = new PM_request;
-        $current_user = wp_get_current_user();
-        $get = array('gid'=> 2);
-        $meta_query_array = $pmrequests->pm_get_user_meta_query($get);
-        $user_query =  $dbhandler->pm_get_all_users_ajax('',$meta_query_array,'',0,3,'DESC','ID');
-        $users = $user_query->get_results();
-        return $users;
-    }
-
     public function pm_messenger_send_new_message($rid,$content) {
         $dbhandler = new PM_DBhandler;
         $pmrequests = new PM_request;
@@ -149,7 +136,7 @@ class PM_Messenger {
         $content = $content;
 
         //********** TEST CODE Capstone 2018 **********
-        $providers = $this->pm_get_all_providers();
+        $providers = $pmrequests->pm_get_all_providers();
 
         //loop through all providers
         //check if sending to provider
