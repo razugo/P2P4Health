@@ -1319,7 +1319,7 @@ function pm_messenger_send_chat_message(event) {
         alert(pm_error_object.empty_chat_message);
         return false;
     }
-    if(jQuery("#receipent_field_rid").val() === '' || jQuery("#receipent_field_rid") != 2){
+    if(jQuery("#receipent_field_rid").val() === ''){
         alert("Enter a valid receipent");
         return false;
     }
@@ -1350,8 +1350,8 @@ function pm_messenger_send_message(form_values) {
     //console.log(data);
 
     jQuery.post(pm_ajax_object.ajax_url, data, function (resp) {
-        //console.log("response: ");
-        //console.log(resp);
+        console.log("response: ");
+        console.log(resp);
         if (resp) {
        jQuery("#message_display_area").append(resp);
          jQuery("#message_display_area").scrollTop( jQuery("#message_display_area")[0].scrollHeight);

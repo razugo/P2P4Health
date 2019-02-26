@@ -126,6 +126,20 @@ class PM_Messenger {
         return $return;
     
     }
+
+    //********** TEST CODE Capstone 2018 **********
+    //retrieve all providers
+    public function pm_get_all_providers() {
+        $dbhandler = new PM_DBhandler;
+        $pmrequests = new PM_request;
+        $current_user = wp_get_current_user();
+        $get = array('gid'=> 2);
+        $meta_query_array = $pmrequests->pm_get_user_meta_query($get);
+        $user_query =  $dbhandler->pm_get_all_users_ajax('',$meta_query_array,'',0,3,'DESC','ID');
+        $users = $user_query->get_results();
+        return $users;
+    }
+
     public function pm_messenger_send_new_message($rid,$content) {
         $dbhandler = new PM_DBhandler;
         $pmrequests = new PM_request;
@@ -134,31 +148,42 @@ class PM_Messenger {
         $sid = $current_user->ID;
         $content = $content;
 
-        //Check if rid is valid
         //********** TEST CODE Capstone 2018 **********
-        if($rid != 2) {
-            $return =  __("not sent","profile-magic");
-        }
-        else {
-            $is_msg_sent = $pmrequests->pm_create_message($sid, $rid, $content);
-            $tid=$pmrequests->get_thread_id($sid, $rid);
-            $message = $pmrequests->get_message_of_thread($tid,1);
-            $message_id=$message[0]->m_id;
-            if ($is_msg_sent) {
-                $last_message = nl2br(wp_kses_post($content));
-                $align = "pm_msg_rf";
-                $user_info['avatar'] = get_avatar($sid, 50, '', false, array('class' => 'pm-user-profile'));
-                $return .= "<div id=\"$message_id\" class=\"$align  pm-sending-msg\" > " .
-                        $user_info['avatar']
-                        . "<div class=\"pm-user-description-row pm-dbfl pm-border\">" . stripslashes($last_message) . "</div>".__("Sending","profile-magic")."</div>";
-                
-            } else {
-                $return =  __("not sent","profile-magic");
+        $providers = $this->pm_get_all_providers();
+
+        //loop through all providers
+        //check if sending to provider
+        foreach($providers as $provider) {
+            if($rid == $provider->ID) {
+                $valid = true;
             }
         }
+
+        //if not sending to provider, return
+        if(!isset($valid)) {
+            $return =  __("not sent","profile-magic");
+            return $return;
+        }
+
+        //Check if rid is valid
+        $is_msg_sent = $pmrequests->pm_create_message($sid, $rid, $content);
+        $tid=$pmrequests->get_thread_id($sid, $rid);
+        $message = $pmrequests->get_message_of_thread($tid,1);
+        $message_id=$message[0]->m_id;
+        if ($is_msg_sent) {
+            $last_message = nl2br(wp_kses_post($content));
+            $align = "pm_msg_rf";
+            $user_info['avatar'] = get_avatar($sid, 50, '', false, array('class' => 'pm-user-profile'));
+            $return .= "<div id=\"$message_id\" class=\"$align  pm-sending-msg\" > " .
+                    $user_info['avatar']
+                    . "<div class=\"pm-user-description-row pm-dbfl pm-border\">" . stripslashes($last_message) . "</div>".__("Sending","profile-magic")."</div>";
+            
+        } else {
+            $return =  __("not sent","profile-magic");
+        }
       return $return;
-       
     }
+
     public function pm_messenger_show_messages($tid,$t_status,$loadnum,$last_mid,$timezone=0) {
         $dbhandler = new PM_DBhandler;
         $pmrequests = new PM_request;
