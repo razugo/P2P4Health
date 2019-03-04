@@ -95,3 +95,41 @@ require get_template_directory() . '/inc/structure/header.php';
 require get_template_directory() . '/inc/structure/navigation.php';
 require get_template_directory() . '/inc/structure/post-meta.php';
 require get_template_directory() . '/inc/structure/sidebars.php';
+
+//********** TEST CODE Capstone 2018 **********
+add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
+
+function custom_meta_box_fields( $meta_fields ) {
+    
+    $meta_fields[__( 'Additional Information', 'wpsl' )] = array(
+        'phone' => array(
+            'label' => __( 'Tel', 'wpsl' )
+        ),
+        'fax' => array(
+            'label' => __( 'Fax', 'wpsl' )
+        ),
+        'email' => array(
+            'label' => __( 'Email', 'wpsl' )
+        ),
+        'url' => array(
+            'label' => __( 'Url', 'wpsl' )
+        ),
+        'profile_url' => array(
+            'label' => __( 'Profile', 'wpsl' )
+        )
+    );
+
+    return $meta_fields;
+}
+
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields' );
+
+function custom_frontend_meta_fields( $store_fields ) {
+
+    $store_fields['wpsl_profile_url'] = array( 
+        'name' => 'profile_url',
+        'type' => 'url'
+    );
+
+    return $store_fields;
+}

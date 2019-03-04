@@ -57,6 +57,12 @@ function wpsl_create_underscore_templates( $template ) {
         }
         
         $listing_template .= "\t\t\t" . '</p>' . "\r\n";
+
+        //********** TEST CODE Capstone 2018 **********
+        // Check if the 'appointment_url' contains data before including it.
+        $listing_template .= "\t\t\t" . '<% if ( profile_url ) { %>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<p><a href="<%= profile_url %>">' . __( 'View Profile', 'wpsl' ) . '</a></p>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
         
         // Show the phone, fax or email data if they exist.
         if ( $wpsl_settings['show_contact_details'] ) {
