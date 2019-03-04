@@ -434,7 +434,7 @@ class PM_HTML_Creator
                 
                 <div id="pm-autocomplete"></div>
                 <div id="pm-username-error" class="pm-dbfl"></div>
-                <div id="message_display_area" class="pm-difl pm_full_width_profile"  style="min-height:200px;max-height:200px;max-width: 550px;overflow-y:auto;">
+                <div id="message_display_area" class="pm-difl pm_full_width_profile"  style="min-height:400px;max-height:400px;max-width: 550px;overflow-y:auto;">
                     <?php echo $message_display;?>
                 <?php   $path =  plugins_url( '../public/partials/images/typing_image.gif', __FILE__ );?>
                
