@@ -930,6 +930,13 @@ class Profile_Magic_Public {
             die;
     }
 
+    /*
+    changed so only providers are suggested in messaging
+    $meta_args = array('status'=>'0');
+    was changed to
+    $meta_args = array('gid'=>2);
+    */
+
     public function pm_autocomplete_user_search(){
     $dbhandler = new PM_DBhandler;
     $pmrequests = new PM_request;
