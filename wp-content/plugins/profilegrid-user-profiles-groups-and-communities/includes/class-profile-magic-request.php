@@ -2832,7 +2832,7 @@ class PM_request {
        }
     }
 
-    //********** TEST CODE Capstone 2018 **********
+    //********** TEST CODE Capstone 2019 **********
     //retrieve all providers
     public function pm_get_all_providers() {
         $dbhandler = new PM_DBhandler;
@@ -3385,6 +3385,13 @@ class PM_request {
             }
             $update =  update_user_meta($uid,'pm_joining_date', $joining_dates);
             $update =  update_user_meta($uid,'pm_group', $gid_array);
+
+            //********** TEST CODE Capstone 2019 **********
+            if($gid == '1' || $gid == 1) {
+                update_user_meta($uid,'pm_profile_privacy', 5);	
+                update_user_meta($uid,'pm_hide_my_profile', 1);
+            }	
+
             $where = array('gid'=>$gid,'uid'=>$uid);
             $data = array('status'=>'3');
             $request_id = $dbhandler->get_value_with_multicondition('REQUESTS','id',$where);

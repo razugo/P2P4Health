@@ -1330,7 +1330,7 @@ function pm_messenger_send_chat_message(event) {
      jQuery("#messenger_textarea").val('');
 }
 function pm_messenger_send_message(form_values) {
-    //********** TEST CODE Capstone 2018 **********
+    //********** TEST CODE Capstone 2019 **********
     //console.log("sending message: ");
     //console.log(form_values);
     var data = {};

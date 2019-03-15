@@ -135,19 +135,47 @@ class PM_Messenger {
         $sid = $current_user->ID;
         $content = $content;
 
-        //********** TEST CODE Capstone 2018 **********
+        //********** TEST CODE Capstone 2019 **********
         $providers = $pmrequests->pm_get_all_providers();
-
-        //loop through all providers
-        //check if sending to provider
+        //check if id's are providers
+        //sid is source id
+        //rid is receiving id
+        $valid = true;
+        $tid = $pmrequests->get_thread_id($sid, $rid);
+        $sourceIsProvider = false;
+        $receivingIsProvider = false;
         foreach($providers as $provider) {
+            if($sid == $provider->ID) {
+                $sourceIsProvider = true;
+            }
             if($rid == $provider->ID) {
-                $valid = true;
+                $receivingIsProvider = true;
+            }
+        }
+
+        //patients are able to initiate conversations with providers
+        //patients can only send one message to providers
+        if(!$sourceIsProvider) { //source is a patient
+            if(!$receivingIsProvider) {
+                $valid = false;
+            }
+            if($tid != false && count($pmrequests->get_message_of_thread($tid, 2)) == 1) { //message in thread exists and number of messages is 1
+                $valid = false;
+            }
+        }
+
+        //providers are only allowed to reply to patients
+        if($sourceIsProvider) {
+            if($tid == false) {
+                $valid = false;
+            }
+            if($receivingIsProvider) {
+                $valid = false;
             }
         }
 
         //if not sending to provider, return
-        if(!isset($valid)) {
+        if(!$valid) {
             $return =  __("not sent","profile-magic");
             return $return;
         }

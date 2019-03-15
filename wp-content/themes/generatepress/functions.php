@@ -96,7 +96,7 @@ require get_template_directory() . '/inc/structure/navigation.php';
 require get_template_directory() . '/inc/structure/post-meta.php';
 require get_template_directory() . '/inc/structure/sidebars.php';
 
-//********** TEST CODE Capstone 2018 **********
+//********** TEST CODE Capstone 2019 **********
 add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
 
 function custom_meta_box_fields( $meta_fields ) {
