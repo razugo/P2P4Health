@@ -49,7 +49,10 @@ class Wpug_users_gallery_upload
 				<input type="text" name="gallery_item_title" id="gallery_item_title" value="" placeholder="<?php _e('Title', 'wp-users-gallery'); ?>" required>
 				</label>
 			</fieldset>
-			<fieldset>
+			<!--
+				//********** TEST CODE Capstone 2019 **********
+			-->
+			<!-- <fieldset>
 				<label><?php _e('Category', 'wp-users-gallery'); ?></label>
 				<select name="category" class="category" style="width:150px;">
 					<option value=""></option>
@@ -61,7 +64,7 @@ class Wpug_users_gallery_upload
 					}
 					?>
 				</select>
-			</fieldset>
+			</fieldset> -->
             <fieldset class="type">
 				<label><?php _e('Type', 'wp-users-gallery'); ?></label>
 				<label for="image"><?php _e('Image', 'wp-users-gallery'); ?></label>

@@ -44,6 +44,10 @@ class Wpug_users_gallery_post_types {
      * Set up menu
      */
     public function load_menu() {
+
+        //********** TEST CODE Capstone 2019 **********
+        return;
+
         //get current page name
         global $post;
 

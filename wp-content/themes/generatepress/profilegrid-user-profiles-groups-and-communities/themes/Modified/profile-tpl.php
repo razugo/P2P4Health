@@ -5,6 +5,8 @@ $rid = filter_input(INPUT_GET,'rid');
 $pagenum = isset($pagenum) ? absint($pagenum) : 1;
 $group_page_link = $pmrequests->profile_magic_get_frontend_url('pm_group_page','');
 
+$profileID = 0;
+
 if(!empty($gid))
 {
     $primary_gid = $pmrequests->pg_get_primary_group_id($gid);
@@ -91,11 +93,13 @@ else
             <li id="pg-profile-groups-tab" class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-groups"><?php _e('Groups','profile-magic');?></a></li>
             
             <!--
-              //********** TEST CODE Capstone 2018 **********
+              //********** TEST CODE Capstone 2019 **********
             -->
             <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-photos"><?php _e('Photos','profile-magic');?></a></li>
-            <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-upload-photos"><?php _e('Upload Photos','profile-magic');?></a></li>
-
+            
+            <?php if($uid == $current_user->ID):?>
+              <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-upload-photos"><?php _e('Upload Photos','profile-magic');?></a></li>
+            <?php endif; ?>
 
             <?php if($dbhandler->get_global_option_value('pm_enable_blog','1')==1):?>
             <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-blog"><?php _e('Blog','profile-magic');?></a></li>
@@ -216,15 +220,15 @@ else
         <?php endif;?>
 
         <!--
-          //********** TEST CODE Capstone 2018 **********
+          //********** TEST CODE Capstone 2019 **********
         -->
         <div id="pg-photos" class="pm-dbfl pg-profile-tab-content">
-          <h1> Photos </h1>
-          <?php echo do_shortcode("[users_gallery g_page=\"files\"]"); ?>
+          <h1>Photos</h1>
+          <?php echo do_shortcode("[users_gallery g_page=\"files\" profile_id=" . $uid . "]"); ?>
         </div>
 
         <div id="pg-upload-photos" class="pm-dbfl pg-profile-tab-content">
-          <h1> Photos </h1>
+          <h1> Upload Photos </h1>
           <?php echo do_shortcode("[users_gallery g_page=\"upload\"]"); ?>
         </div>
    

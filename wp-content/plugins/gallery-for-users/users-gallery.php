@@ -1,5 +1,7 @@
 <?php
 
+$profile_id = '';
+
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
@@ -45,6 +47,12 @@ class Wpug_users_gallery {
         //Get page param
         $g_page = (isset($atts['g_page'])) ? $atts['g_page'] : '';
 
+        //********** TEST CODE Capstone 2019 **********
+        global $profile_id;
+        $profile_id = (isset($atts['profile_id'])) ? $atts['profile_id'] : '';
+        if (isset($_GET['profile_id']))
+            $g_page = sanitize_text_field($_GET['profile_id']);
+        
         //Get current page from url
         if (isset($_GET['g_page']))
             $g_page = sanitize_text_field($_GET['g_page']);

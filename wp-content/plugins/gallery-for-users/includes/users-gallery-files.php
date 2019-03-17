@@ -40,10 +40,15 @@ class Wpug_users_gallery_files {
 
     public function show_user_files() {
         //gallery_item_video_url
-        $user_id = get_current_user_id();
+
+        //********** TEST CODE Capstone 2019 **********
+        global $current_user;
+        $user_id = $current_user->ID;
+        global $uid;
+        global $profile_id;
 
         $args = array(
-            'author' => $user_id,
+            'author' => $profile_id,
             'orderby' => 'post_date',
             'order' => 'DESC',
             'post_type' => 'users_gallery',
@@ -72,12 +77,17 @@ class Wpug_users_gallery_files {
                 <div class="overview-block user-files">
                     <img src='<?php echo esc_url($post_thumb); ?>' alt="<?php echo esc_attr($post_title); ?>">
                     <!--Delete item form-->
+                    <!--
+                        //********** TEST CODE Capstone 2019 **********
+                    -->
+                    <?php if($profile_id == $current_user->ID): ?>
                     <form action="" name="delete_user_gallery_item" method="post" class="delete-file">
                         <?php wp_nonce_field('user_gallery_nonce', 'user_gallery_nonce'); ?>
                         <input type="hidden" name="post_id" value="<?php echo esc_attr($post_id); ?>">
                         <input type="hidden" name="author_id" value="<?php echo esc_attr($user_id); ?>">
                         <input type="submit" class="users_gallery_button" name="user_gallery_item_delete" value="<?php _e('Delete', 'wp-users-gallery'); ?>">
                     </form>
+                    <?php endif; ?>
                 </div>
 
             </div>
