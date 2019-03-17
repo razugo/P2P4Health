@@ -1,0 +1,445 @@
+/*
+Plugin name: user-gallery
+*/
+/*Variables*/
+/*responsive*/
+/*mixin*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,600italic,700italic,800,800italic,300italic);
+#user-gallery-2hats.user-gallery-2hats {
+    font-family: 'Open Sans', sans-serif;
+}
+.fb-share, .tweet_share, .gplus_share, .linkedin_share {
+    cursor: pointer;
+}
+#user-gallery-2hats.user-gallery-2hats *,
+#user-gallery-2hats.user-gallery-2hats *:before,
+#user-gallery-2hats.user-gallery-2hats *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#user-gallery-2hats.user-gallery-2hats a {
+    text-decoration: none;
+}
+#user-gallery-2hats.user-gallery-2hats ul.menu {
+    padding: 0;
+    margin: 0 0 15px;
+    text-align: center;
+}
+#user-gallery-2hats.user-gallery-2hats ul.menu li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 2px;
+}
+#user-gallery-2hats.user-gallery-2hats ul.menu li a {
+    padding: 5px 15px;
+    background-color: #000;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 3px;
+    text-transform: capitalize;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+    text-decoration: none;
+}
+#user-gallery-2hats.user-gallery-2hats ul.menu li a.active {
+    background-color: #474747;
+    text-decoration: none;
+}
+#user-gallery-2hats.user-gallery-2hats ul.menu li a:hover {
+    background-color: #474747;
+    text-decoration: none;
+}
+#user-gallery-2hats.user-gallery-2hats .overview-blocks {
+    float: left;
+    padding: 0 7.5px;
+    width: 25%;
+}
+@media (max-width: 991px) {
+    #user-gallery-2hats.user-gallery-2hats .overview-blocks {
+        width: 33.3333%;
+    }
+}
+@media (max-width:680px) {
+    #user-gallery-2hats.user-gallery-2hats .overview-blocks {
+        width: 50%;
+    }
+}
+@media (max-width:480px) {
+    #user-gallery-2hats.user-gallery-2hats .overview-blocks {
+        width: 100%;
+    }
+}
+#user-gallery-2hats.user-gallery-2hats .overview-blocks .overview-block img {
+    /*max-height: 99px;*/
+}
+#user-gallery-2hats.user-gallery-2hats .overview-block {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+#user-gallery-2hats.user-gallery-2hats .overview-block.user-files {
+    padding: 3px;
+}
+#user-gallery-2hats.user-gallery-2hats .overview-block img {
+    width: 100%;
+    padding: 0;
+}
+#user-gallery-2hats.user-gallery-2hats .overview-block .name-block {
+    background-color: #fff;
+    color: #000;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: 600;
+}
+#user-gallery-2hats.user-gallery-2hats .sort-box {
+    margin-bottom: 30px;
+}
+#user-gallery-2hats.user-gallery-2hats .custom-select {
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #dbdbdb;
+    width: 150px;
+    overflow: hidden;
+    background-image: url('../images/arrowdown.gif');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+}
+#user-gallery-2hats.user-gallery-2hats .custom-select select {
+    padding: 5px 8px;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    min-width: auto;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #474747;
+}
+#user-gallery-2hats.user-gallery-2hats .custom-select select:focus {
+    outline: none;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    margin: 0 auto 30px;
+    max-width: 500px;
+    width: 100%;
+    padding: 15px;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset {
+    padding: 0 15px;
+    margin-bottom: 7.5px;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset.select {
+    float: left;
+    width: 50%;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset label {
+    color: #000;
+    display: block;
+    padding-bottom: 2px;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset .input-text,
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset input[type="text"] {
+    border: 1px solid #d2d2d2;
+    box-sizing: border-box;
+    font-size: 13px;
+    margin-right: 1%;
+    padding: 8px 15px;
+    width: 100%;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset input {
+    width: 100%;
+}
+#user-gallery-2hats.user-gallery-2hats .search-form fieldset input.date {
+    content: "";
+    background-image: url('../images/calendar-ico.png');
+    background-position: 98% center;
+    background-repeat: no-repeat;
+    background-size: 15px auto;
+    cursor: pointer;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item,
+#user-gallery-2hats.user-gallery-2hats #loginform {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    margin: 0 auto 30px;
+    max-width: 500px;
+    width: 100%;
+    padding: 15px;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item fieldset,
+#user-gallery-2hats.user-gallery-2hats #loginform fieldset {
+    padding: 0 15px;
+    margin-bottom: 7.5px;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item fieldset fieldset,
+#user-gallery-2hats.user-gallery-2hats #loginform fieldset fieldset {
+    padding: 0;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item fieldset label a,
+#user-gallery-2hats.user-gallery-2hats #loginform fieldset label a {
+    color: #000;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item fieldset label a:hover,
+#user-gallery-2hats.user-gallery-2hats #loginform fieldset label a:hover {
+    color: #186c95;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item input[type="radio"],
+#user-gallery-2hats.user-gallery-2hats #loginform input[type="radio"] {
+    margin-left: 0;
+    margin-top: 0;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item label[for="image"],
+#user-gallery-2hats.user-gallery-2hats #loginform label[for="image"],
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item label[for="video"],
+#user-gallery-2hats.user-gallery-2hats #loginform label[for="video"] {
+    margin: 0 0 0 15px;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item input[type="file"],
+#user-gallery-2hats.user-gallery-2hats #loginform input[type="file"] {
+    background-color: #ccc;
+    color: #474747;
+    width: 100%;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: medium none;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+#user-gallery-2hats.user-gallery-2hats #users_gallery_add_item input[type="file"]:hover,
+#user-gallery-2hats.user-gallery-2hats #loginform input[type="file"]:hover {
+    background-color: #000;
+    color: #fff;
+}
+#user-gallery-2hats.user-gallery-2hats .chosen-container-single .chosen-single {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 0;
+    box-shadow: none;
+    height: 30px;
+    padding-top: 2px;
+}
+#user-gallery-2hats.user-gallery-2hats .clear {
+    clear: both;
+    overflow: hidden;
+}
+#user-gallery-2hats.user-gallery-2hats .chosen-container {
+    width: 100% !important;
+}
+#user-gallery-2hats.user-gallery-2hats .submit,
+#user-gallery-2hats.user-gallery-2hats .theme-btn {
+    background-color: #000;
+    color: #fff;
+    margin-left: 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: medium none;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+#user-gallery-2hats.user-gallery-2hats .submit:hover,
+#user-gallery-2hats.user-gallery-2hats .theme-btn:hover {
+    background-color: #474747;
+    color: #fff;
+}
+#user-gallery-2hats.user-gallery-2hats .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+#user-gallery-2hats.user-gallery-2hats .eq-row {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+#user-gallery-2hats.user-gallery-2hats .eq-row > [class*='overview-blocks'] {
+    display: flex;
+    flex-direction: column;
+}
+#user-gallery-2hats.user-gallery-2hats .usergallery-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+}
+#user-gallery-2hats.user-gallery-2hats .delete-file {
+    padding: 7.5px;
+    text-align: right;
+}
+#user-gallery-2hats.user-gallery-2hats .delete-file input {
+    background-color: #000;
+    color: #fff;
+    margin-left: 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: medium none;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+#user-gallery-2hats.user-gallery-2hats .delete-file input:hover {
+    background-color: #474747;
+    color: #fff;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget {
+    border-radius: 5px;
+    padding: 13px;
+    margin-bottom: 18px;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget .overview-block {
+    position: relative;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget .overview-block img {
+    width: 100%;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget .overview-block img[src*="http://img.youtube"] {
+    margin: 0 0 -28px;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget .overview-block p {
+    background-color: rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    font-size: 14px;
+    font-weight: 600;
+    left: 0;
+    margin: 0;
+    padding: 5px 15px;
+    position: absolute;
+    right: 0;
+    color: #fff;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget .overview-block:hover {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget h3 {
+    color: #000;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    padding: 8px 0 0;
+    font-size: 17px;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget h3 a {
+    color: #000;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+    font-weight: 700;
+    font-size: 17px;
+}
+#user-gallery-2hats.user-gallery-2hats .user-gallery-widget h3 a:hover {
+    color: #000;
+}
+#user-gallery-2hats.user-gallery-2hats .overview-block.user-files > img[src*="http://img.youtube"] {
+    height: 121px;
+}
+#user-gallery-2hats.user-gallery-2hats iframe {
+    visibility: visible;
+    opacity: 1;
+}
+#user-gallery-2hats.user-gallery-2hats .share-links {
+    margin-top: 120px;
+}
+#user-gallery-2hats.user-gallery-2hats .share-links p {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #186c95;
+}
+#user-gallery-2hats.user-gallery-2hats h3.titile {
+    font-weight: 700;
+}
+#user-gallery-2hats.user-gallery-2hats .meta-data h4 {
+    margin: 5px 0 0 0;
+}
+#user-gallery-2hats.user-gallery-2hats .meta-data h4.titile {
+    font-weight: 700;
+}
+#user-gallery-2hats.user-gallery-2hats .type label {
+    display: inline-block;
+}
+#user-gallery-2hats.user-gallery-2hats label {
+    color: #000;
+    display: block;
+    padding-bottom: 2px;
+}
+#user-gallery-2hats.user-gallery-2hats label.error {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: #a94442;
+}
+#user-gallery-2hats.user-gallery-2hats .input-text,
+#user-gallery-2hats.user-gallery-2hats input[type="text"] {
+    border: 1px solid #d2d2d2;
+    box-sizing: border-box;
+    font-size: 13px;
+    margin-right: 1%;
+    padding: 8px 15px;
+    width: 100%;
+}
+#user-gallery-2hats.user-gallery-2hats .input-text.required-field.error,
+#user-gallery-2hats.user-gallery-2hats input[type="text"].required-field.error {
+    background-color: transparent;
+    border-color: #a94442 ;
+}
+#user-gallery-2hats.user-gallery-2hats .fb-share {
+    background-color: #3b5998;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 1px;
+    outline: medium none;
+    padding: 1px 5px;
+}
+#user-gallery-2hats.user-gallery-2hats .tweet_share {
+    background-color: #55acee;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 1px;
+    outline: medium none;
+    padding: 1px 5px;
+}
+#user-gallery-2hats.user-gallery-2hats .gplus_share {
+    background-color: #dc4e41;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 1px;
+    outline: medium none;
+    padding: 1px 5px;
+}
+#user-gallery-2hats.user-gallery-2hats .linkedin_share {
+    background-color: #0077b5;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 1px;
+    outline: medium none;
+    padding: 1px 5px;
+}
+/*#user-gallery-2hats*/

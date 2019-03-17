@@ -89,6 +89,14 @@ else
             
             <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-about"><?php _e('About','profile-magic');?></a></li>
             <li id="pg-profile-groups-tab" class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-groups"><?php _e('Groups','profile-magic');?></a></li>
+            
+            <!--
+              //********** TEST CODE Capstone 2018 **********
+            -->
+            <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-photos"><?php _e('Photos','profile-magic');?></a></li>
+            <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-upload-photos"><?php _e('Upload Photos','profile-magic');?></a></li>
+
+
             <?php if($dbhandler->get_global_option_value('pm_enable_blog','1')==1):?>
             <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-blog"><?php _e('Blog','profile-magic');?></a></li>
             <?php endif;?>
@@ -206,6 +214,19 @@ else
             </div>
         </div>
         <?php endif;?>
+
+        <!--
+          //********** TEST CODE Capstone 2018 **********
+        -->
+        <div id="pg-photos" class="pm-dbfl pg-profile-tab-content">
+          <h1> Photos </h1>
+          <?php echo do_shortcode("[users_gallery g_page=\"files\"]"); ?>
+        </div>
+
+        <div id="pg-upload-photos" class="pm-dbfl pg-profile-tab-content">
+          <h1> Photos </h1>
+          <?php echo do_shortcode("[users_gallery g_page=\"upload\"]"); ?>
+        </div>
    
        <?php if($uid == $current_user->ID && $dbhandler->get_global_option_value('pm_enable_private_messaging','1')==1): ?>
         <div id="pg-messages" class="pm-dbfl pg-profile-tab-content">

@@ -1,0 +1,28 @@
+/*Variables*/
+@bg:#333;
+@border:#dbdbdb;
+@theme-color:#1a75ff;
+@color:#fff;
+@theme-hover:#b03060;
+
+/*responsive*/
+@tab: ~"(max-width: 991px)";
+@mobile:~"(max-width:680px)";
+@small-mobile:~"(max-width:480px)";
+
+/*mixin*/
+.shadow(@opacity:1){
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, @opacity);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, @opacity);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, @opacity);
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,600italic,700italic,800,800italic,300italic);
+.font(){
+	font-family: 'Open Sans', sans-serif;
+}
+.transition(@time:1s){
+	-webkit-transition: all @time ease-out;
+	-moz-transition: all @time ease-out;
+	-o-transition: all @time ease-out;
+	transition: all @time ease-out;
+}

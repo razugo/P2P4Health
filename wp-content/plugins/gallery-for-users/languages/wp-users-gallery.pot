@@ -1,0 +1,519 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Users Gallery\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Thu Jun 09 2016 13:25:45 GMT+0530 (India Standard Time)\n"
+"POT-Revision-Date: Wed Aug 10 2016 13:12:22 GMT+0530 (India Standard Time)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#. Name of the plugin
+msgid "Gallery for Users"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Allows the users of the site to upload and display their own images and link "
+"to their Youtube videos in a gallery"
+msgstr ""
+
+#. Author of the plugin
+msgid "TOGI Data ApS"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://togidata.dk"
+msgstr ""
+
+#: ../init.php:36
+msgid ""
+"You can't use the free version of Users gallery while you are using the "
+"premium one."
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:57
+msgid "Users gallery settings"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:59
+msgid "Custom button colors"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:65
+msgid "Button colour"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:73
+msgid "Button text colour"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:81
+msgid "Button colour on hover"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:89
+msgid "Button text colour on hover"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:97 ../includes/users-gallery-admin.php:102
+msgid "Font"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:125
+msgid "Save Changes"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:128
+msgid "Available shortcodes"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:133
+msgid "Overview page"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:141
+msgid "Search page"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:149
+msgid "Upload page"
+msgstr ""
+
+#: ../includes/users-gallery-admin.php:157
+msgid "My files page"
+msgstr ""
+
+#: ../includes/users-gallery-files.php:79
+msgid "Delete"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:72
+msgid "Overview"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:75 ../includes/users-gallery-search.php:
+#: 129 ../includes/users-gallery-search.php:130 ../includes/users-gallery-search.
+#: php:142
+msgid "Search"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:78
+msgid "Upload"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:81
+msgid "My files"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:91
+msgid "Login to view this"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:102
+msgid "Gallery item"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:103
+msgid "Gallery items"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:107
+msgctxt "Permalink - resave permalinks after changing this"
+msgid "users_gallery"
+msgstr ""
+
+#. Name of the plugin
+#: ../includes/users-gallery-global.php:117
+msgid "Users Gallery"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:118 ../includes/users-gallery-global.php:
+#: 167
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:119
+msgid "Add New"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:120
+#, php-format
+msgid "Add %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:121
+msgid "Edit"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:122 ../includes/users-gallery-global.php:
+#: 170
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:123
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:124 ../includes/users-gallery-global.php:
+#: 125
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:126 ../includes/users-gallery-global.php:
+#: 166
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:127
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:128
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:129 ../includes/users-gallery-global.php:
+#: 168
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:131
+#, php-format
+msgid "This is where you can create and manage %s."
+msgstr ""
+
+#: ../includes/users-gallery-global.php:153
+msgid "Gallery item type"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:154
+msgid "Gallery item types"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:169
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:171
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:172
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:173
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:196
+msgid "Users gallery image posts"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:207
+msgid "Users gallery video posts"
+msgstr ""
+
+#: ../includes/users-gallery-global.php:266
+msgid "Share on social media"
+msgstr ""
+
+#: ../includes/users-gallery-overview.php:116
+msgid "Nothing found"
+msgstr ""
+
+#: ../includes/users-gallery-overview.php:162
+msgid "Recent posts by"
+msgstr ""
+
+#: ../includes/users-gallery-overview.php:234
+msgid "No posts"
+msgstr ""
+
+#: ../includes/users-gallery-overview.php:244
+msgid "Uploaded by"
+msgstr ""
+
+#: ../includes/users-gallery-overview.php:247
+msgid "Upload date"
+msgstr ""
+
+#: ../includes/users-gallery-overview.php:283
+msgid "All"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:74
+msgid "User"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:95 ../includes/users-gallery-upload.php:66
+msgid "Type"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:109 ../includes/users-gallery-upload.php:53
+msgid "Category"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:134
+msgid "From date"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:137
+msgid "to"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:147 ../includes/users-gallery-search.php:
+#: 148 ../includes/users-gallery-upload.php:97
+msgid "Select an option"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:158 ../includes/users-gallery-search.php:
+#: 165
+msgid "Sunday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:159
+msgid "Monday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:160
+msgid "Tuesday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:161
+msgid "Wednesday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:162
+msgid "Thursday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:163
+msgid "Friday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:164
+msgid "Saturday"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:168 ../includes/users-gallery-search.php:
+#: 175
+msgid "Sun"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:169
+msgid "Mon"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:170
+msgid "Tue"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:171
+msgid "Wed"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:172
+msgid "Thu"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:173
+msgid "Fri"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:174
+msgid "Sat"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:178 ../includes/users-gallery-search.php:
+#: 185
+msgid "Su"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:179
+msgid "Mo"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:180
+msgid "Tu"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:181
+msgid "We"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:182
+msgid "Th"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:183
+msgid "Fr"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:184
+msgid "Sa"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:188
+msgid "January"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:189
+msgid "February"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:190
+msgid "March"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:191
+msgid "April"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:192 ../includes/users-gallery-search.php:
+#: 206
+msgid "May"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:193
+msgid "June"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:194
+msgid "July"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:195
+msgid "August"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:196
+msgid "September"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:197
+msgid "October"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:198
+msgid "November"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:199
+msgid "December"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:202
+msgid "Jan"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:203
+msgid "Feb"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:204
+msgid "Mar"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:205
+msgid "Apr"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:207
+msgid "Jun"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:208
+msgid "Jul"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:209
+msgid "Aug"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:210
+msgid "Sep"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:211
+msgid "Oct"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:212
+msgid "Nov"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:213
+msgid "Dec"
+msgstr ""
+
+#: ../includes/users-gallery-search.php:324
+msgid "No matching posts found "
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:48 ../includes/users-gallery-upload.php:49
+msgid "Title"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:67 ../includes/users-gallery-upload.php:75
+msgid "Image"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:69
+msgid "Video"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:81
+msgid "Youtube video URL"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:82 ../includes/users-gallery-writepanels.
+#: php:20 ../includes/users-gallery-writepanels.php:31
+msgid "Video url"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:85
+msgid "Thumbnail image (Optional)"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:90
+msgid "Submit"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:122
+msgid "File must be JPG, GIF or PNG less than 5MB"
+msgstr ""
+
+#: ../includes/users-gallery-upload.php:134 ../includes/users-gallery-upload.php:
+#: 195
+msgid "File type error"
+msgstr ""
