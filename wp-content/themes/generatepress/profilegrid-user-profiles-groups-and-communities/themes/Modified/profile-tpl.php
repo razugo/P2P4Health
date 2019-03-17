@@ -95,9 +95,14 @@ else
             <!--
               //********** TEST CODE Capstone 2019 **********
             -->
-            <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-photos"><?php _e('Photos','profile-magic');?></a></li>
+            <?php 
+              $is_provider = $pmrequests->pm_is_provider($uid);
+              if($is_provider):
+            ?>
+              <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-photos"><?php _e('Photos','profile-magic');?></a></li>
+            <?php endif; ?>
             
-            <?php if($uid == $current_user->ID):?>
+            <?php if($uid == $current_user->ID && $is_provider):?>
               <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-upload-photos"><?php _e('Upload Photos','profile-magic');?></a></li>
             <?php endif; ?>
 
