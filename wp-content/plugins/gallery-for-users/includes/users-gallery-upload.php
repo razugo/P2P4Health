@@ -53,15 +53,15 @@ class Wpug_users_gallery_upload
 				//********** TEST CODE Capstone 2019 **********
 			-->
 			<!-- <fieldset>
-				<label><?php _e('Category', 'wp-users-gallery'); ?></label>
+				<label><?php //_e('Category', 'wp-users-gallery'); ?></label>
 				<select name="category" class="category" style="width:150px;">
 					<option value=""></option>
 					<?php
-					foreach ($categories as $category) {
-						if ($category->name != 'Uncategorized'){
-							echo '<option value="'.esc_attr($category->term_id).'">'.esc_html($category->name).'</option>';
-						}
-					}
+					// foreach ($categories as $category) {
+					// 	if ($category->name != 'Uncategorized'){
+					// 		echo '<option value="'.esc_attr($category->term_id).'">'.esc_html($category->name).'</option>';
+					// 	}
+					// }
 					?>
 				</select>
 			</fieldset> -->

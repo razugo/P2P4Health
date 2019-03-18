@@ -1,0 +1,158 @@
+/**
+ *
+ */
+.wpfm_upload_button {
+    margin: 15px auto;
+    border: 1px solid #e8e8e8;
+    padding: 20px;
+}
+.wpfm-new-select label {
+	font-weight: normal;
+	margin-bottom: 0; 
+}
+.wpfm-new-select-wrapper input[type="file"]  {
+	display: none;
+}
+.wpfm-dir-create-wrapper {
+	display: none;
+}
+.margin-bottom {
+	margin-bottom: 15px;
+}
+#wpfm-del-dir-btn {
+	display: none;
+}
+#wpfm-fiels-in-table {
+	display: none;
+}
+
+#wpfm-fiels-in-table table img {
+	height: 32px;
+}
+/* by default detail box is hide */
+/*[class*='file_detail_box_'] {
+	display: none;
+}*/
+.wpfm_user_file {
+	border: 1px solid #ddd;
+    /*display: table-cell;
+    height: 160px;
+    padding: 40px;
+    vertical-align: middle;*/
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.icon-box {
+	display: table-cell;
+    height: 160px;
+    vertical-align: middle;
+   
+}
+.file_title {
+	overflow: hidden;
+	cursor: pointer;
+}
+#wpfm-save-file-btn {
+	display: none;
+}
+
+.breadcrumb li {
+	cursor: pointer;
+}
+
+/* style for bootstrasp model width */
+.modal-full {
+	width: 98%;
+}
+
+#file-edit-btn {
+	margin-left: 10px;
+}
+.file-title {
+	margin-bottom: 2px !important;
+}
+.file-title-dec-save-btn, .file-title-dec-cancel-adit-btn {
+	margin-top: 10px;
+	margin-right: 10px; 
+}
+.title_dec_adit_wrapper {
+	display: none;
+	margin: 10px 0;
+}
+
+#wpfm-files-wrapper .has-parent {
+	display: none;
+}
+
+#wpfm-files-wrapper .shared-file {
+	display: block !important;
+}
+.download-file-btn {
+	margin-bottom: 10px;
+}
+
+.wpfm_files_grid .mix{
+	display: none;
+}
+.wpfm-img {
+    border: none !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+.filechooser_lebel {
+	margin-bottom: 0;
+}
+.wpfm_file_box:hover .file-action {
+	bottom: 0;
+    opacity: 1;
+}
+.description {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+}
+/*
+	file actions css
+*/
+
+.file-action {
+	bottom: -35px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    z-index: 9;
+}
+.wpfm_file_box:hover .file-action {
+	bottom: 20px;
+    opacity: 1;
+}
+
+.del-icon,
+.cart-icon,
+.share-icon,
+.view-icon,
+.view-icon-dir,
+.download-icon{
+	margin: 5px !important;
+	padding: 5px !important;
+	color: #fff !important;
+	background-color: #000;
+	cursor: pointer;
+}
+.del-icon:hover,
+.share-icon:hover,
+.view-icon:hover,
+.view-icon-dir:hover {
+
+	color: #ffffff !important;
+}
+
+/*css for compatibality issuse*/
+.animated {
+	opacity: 0  !important;
+}

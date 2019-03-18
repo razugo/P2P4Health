@@ -101,9 +101,13 @@ else
             ?>
               <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-photos"><?php _e('Photos','profile-magic');?></a></li>
             <?php endif; ?>
-            
-            <?php if($uid == $current_user->ID && $is_provider):?>
+
+            <?php if($uid == $current_user->ID && $is_provider): ?>
               <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-upload-photos"><?php _e('Upload Photos','profile-magic');?></a></li>
+            <?php endif; ?>
+
+            <?php if($uid == $current_user->ID): ?>
+              <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-files"><?php _e('Files','profile-magic');?></a></li>
             <?php endif; ?>
 
             <?php if($dbhandler->get_global_option_value('pm_enable_blog','1')==1):?>
@@ -235,6 +239,11 @@ else
         <div id="pg-upload-photos" class="pm-dbfl pg-profile-tab-content">
           <h1> Upload Photos </h1>
           <?php echo do_shortcode("[users_gallery g_page=\"upload\"]"); ?>
+        </div>
+
+        <div id="pg-files" class="pm-dbfl pg-profile-tab-content">
+          <h1> Files </h1>
+          <?php echo do_shortcode("[nm-wp-file-uploader]"); ?>
         </div>
    
        <?php if($uid == $current_user->ID && $dbhandler->get_global_option_value('pm_enable_private_messaging','1')==1): ?>

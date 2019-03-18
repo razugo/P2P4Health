@@ -1,0 +1,1295 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Project-Id-Version: WP File Manager\n"
+"POT-Creation-Date: 2018-11-20 20:53+0500\n"
+"PO-Revision-Date: 2018-11-20 20:55+0500\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-file-manager.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/admin.php:77
+msgid "All options are updated"
+msgstr "更所所有设置"
+
+#: inc/admin.php:85 inc/admin.php:86 inc/classes/class.email.php:59
+#: inc/classes/class.meta.php:70 inc/classes/class.meta.php:72
+#: inc/classes/class.meta.php:104 inc/classes/class.meta.php:108
+#: inc/classes/class.meta.php:196 inc/file-detail.php:77 inc/file-detail.php:78
+#: inc/files.php:411 inc/shortcode.php:23 templates/admin/fields.php:41
+#: templates/admin/fields.php:43 templates/admin/fields.php:47
+#: templates/admin/settings.php:29 templates/admin/settings.php:80
+#: templates/wpfm-main.php:109 templates/wpfm-main.php:132
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: inc/admin.php:221
+#, fuzzy
+msgid "All Meta are save"
+msgstr "所有的元都保存了"
+
+#: inc/arrays.php:13
+#, fuzzy
+msgid "Choose File Button Label"
+msgstr "选择 \"文件按钮标签\""
+
+#: inc/arrays.php:19
+#, fuzzy
+msgid "Save File Button"
+msgstr "\"保存文件\" 按钮"
+
+#: inc/arrays.php:22
+msgid "Upload File"
+msgstr "上传文件"
+
+#: inc/arrays.php:25
+#, fuzzy
+msgid "Maximum Filesize"
+msgstr "最大文件化"
+
+#: inc/arrays.php:26
+#, fuzzy
+msgid "Enter maximum file size in mb"
+msgstr "以 mb 为单位输入最大文件大小"
+
+#: inc/arrays.php:30
+#, fuzzy
+msgid "In MB e.g: <strong>3mb</strong>"
+msgstr "在 mb 中, 例如: <strong> 3mb </strong>"
+
+#: inc/arrays.php:33
+#, fuzzy
+msgid "Allowed Filetypes"
+msgstr "允许的文件类型"
+
+#: inc/arrays.php:34
+#, fuzzy
+msgid "Enter type of files to upload"
+msgstr "输入要上载的文件类型"
+
+#: inc/arrays.php:38
+#, fuzzy
+msgid ""
+"e.g: <strong>jpg,png,gif,zip,pdf</strong> (Default types will be jpg,png,zip,"
+"pdf)"
+msgstr ""
+"例如: <strong> jpg, png, gif, zip, pdf </strong> (默认类型将是 jpg, png, "
+"zip, pdf)"
+
+#: inc/arrays.php:40
+#, fuzzy
+msgid "Do not load Bootstrap by Plugin?"
+msgstr "不加载引导的插件？"
+
+#: inc/arrays.php:41
+#, fuzzy
+msgid "If your theme already has Bootstrap, disable this option."
+msgstr "如果您的主题已经具有引导功能, 请禁用此选项。"
+
+#: inc/arrays.php:46
+#, fuzzy
+msgid "If your theme already has Bootstrap, Tick this option."
+msgstr "如果您的主题已经具有引导功能, 请勾选此选项。"
+
+#: inc/arrays.php:49
+#, fuzzy
+msgid "Hide breadcrumb?"
+msgstr "藏面包屑？"
+
+#: inc/arrays.php:50
+#, fuzzy
+msgid "Hide breadcrumbs in fornt."
+msgstr "把面包屑藏在里面。"
+
+#: inc/arrays.php:55
+#, fuzzy
+msgid "If you want to hide breadcrumbs, Tick this option."
+msgstr "如果要隐藏面包屑, 请选中此选项。"
+
+#: inc/arrays.php:66
+#, fuzzy
+msgid "File Saved"
+msgstr "已保存的文件"
+
+#: inc/arrays.php:70
+#, fuzzy
+msgid "File(s) Uploaded!"
+msgstr "上传的文件!"
+
+#: inc/arrays.php:71
+#, fuzzy
+msgid "Show when file or directory is created."
+msgstr "显示创建文件或目录的时间。"
+
+#: inc/arrays.php:73
+#, fuzzy
+msgid "Message for guests"
+msgstr "给客人的信息"
+
+#: inc/arrays.php:78
+#, fuzzy
+msgid ""
+"This message will be displayed if user is not logged. If not provided user "
+"will be redirected to login page."
+msgstr "如果未记录用户, 将显示此消息。如果未提供, 用户将被重定向到登录页面。"
+
+#: inc/arrays.php:110
+msgid "General Settings"
+msgstr "常规设置"
+
+#: inc/arrays.php:117
+msgid "Messages"
+msgstr "消息"
+
+#: inc/arrays.php:119
+#, fuzzy
+msgid "All user messages regarding file manager"
+msgstr "有关文件管理器的所有用户消息"
+
+#: inc/arrays.php:125
+msgid "How to use?"
+msgstr "如何使用？"
+
+#: inc/arrays.php:127
+#, fuzzy
+msgid "Following guide is provided to use this plugin"
+msgstr "下面提供了使用此插件的指南"
+
+#: inc/arrays.php:159
+#, fuzzy
+msgid "Files are being loaded ..."
+msgstr "正在加载文件..。"
+
+#: inc/arrays.php:160
+msgid "Please wait ..."
+msgstr "请等待…"
+
+#: inc/arrays.php:161
+#, fuzzy
+msgid "File(s) are being saved"
+msgstr "正在保存文件"
+
+#: inc/arrays.php:162
+#, fuzzy
+msgid "File is uploaded successfully"
+msgstr "文件已成功上传"
+
+#: inc/arrays.php:163
+#, fuzzy
+msgid "Sorry, but some error while uplaoding. Please try again"
+msgstr "对不起, 但在上光的时候有些错误。请再试一次"
+
+#: inc/arrays.php:164
+#, fuzzy
+msgid "Image Dimensions are Not Allowed, Required: \n"
+msgstr "不允许图像尺寸, 必需:"
+
+#: inc/arrays.php:165
+#, fuzzy
+msgid "File Size Not Allowed, Required: \n"
+msgstr "不允许文件大小, 必需:"
+
+#: inc/arrays.php:166
+msgid "Are you sure?"
+msgstr "你确定？"
+
+#: inc/arrays.php:167
+#, fuzzy
+msgid "Deleting file ..."
+msgstr "正在删除文件..。"
+
+#: inc/arrays.php:168
+msgid "File deleted"
+msgstr "%u 个文件已删除"
+
+#: inc/arrays.php:169
+#, fuzzy
+msgid "Updating file ..."
+msgstr "正在更新文件..。"
+
+#: inc/arrays.php:170
+#, fuzzy
+msgid "Creating directory ..."
+msgstr "正在创建目录..。"
+
+#: inc/arrays.php:172
+msgid "Select Group"
+msgstr "选择组"
+
+#: inc/arrays.php:173
+#, fuzzy
+msgid "Oops! Something wrong with server, please try again"
+msgstr "哎呀！服务器有问题, 请再试一次"
+
+#: inc/arrays.php:174
+#, fuzzy, php-format
+msgid "Allowed Types: %s"
+msgstr "允许的类型: %s"
+
+#: inc/arrays.php:184
+#, fuzzy, php-format
+msgid "Max. %d file(s) can be uploaded"
+msgstr "麦克斯。% d 文件可以上传"
+
+#: inc/arrays.php:189 inc/arrays.php:228 inc/arrays.php:248
+#: templates/wpfm-downloads.php:38 templates/wpfm-main.php:45
+msgid "Home"
+msgstr "首页"
+
+#: inc/arrays.php:292 inc/arrays.php:293
+#, fuzzy
+msgid "User Files"
+msgstr "用户文件"
+
+#: inc/arrays.php:294
+msgid "Add New"
+msgstr "添加新的"
+
+#: inc/arrays.php:295
+msgid "All Files"
+msgstr "所有文件"
+
+#: inc/arrays.php:296
+#, fuzzy
+msgid "Add User Files"
+msgstr "添加用户文件"
+
+#: inc/arrays.php:297
+msgid "Edit"
+msgstr "编辑"
+
+#: inc/arrays.php:298
+#, fuzzy
+msgid "Edit User Files"
+msgstr "编辑用户文件"
+
+#: inc/arrays.php:299
+#, fuzzy
+msgid "New User Files"
+msgstr "新用户文件"
+
+#: inc/arrays.php:300
+msgid "View"
+msgstr "查看"
+
+#: inc/arrays.php:301
+#, fuzzy
+msgid "View User Files"
+msgstr "查看用户文件"
+
+#: inc/arrays.php:302
+#, fuzzy
+msgid "Search User Files"
+msgstr "搜索用户文件"
+
+#: inc/arrays.php:303
+#, fuzzy
+msgid "No User Files found"
+msgstr "找不到用户文件"
+
+#: inc/arrays.php:304
+#, fuzzy
+msgid "No User Files found in Trash"
+msgstr "在废纸篓中找不到用户文件"
+
+#: inc/arrays.php:305
+#, fuzzy
+msgid "Parent User Files"
+msgstr "父用户文件"
+
+#: inc/arrays.php:306
+msgid "File Manager"
+msgstr "文件管理器"
+
+#: inc/callback-functions.php:25
+#, fuzzy
+msgid "File updated"
+msgstr "文件已更新"
+
+#: inc/callback-functions.php:28
+#, fuzzy
+msgid "Error while updating file, try again"
+msgstr "更新文件时出错, 请重试"
+
+#: inc/callback-functions.php:44
+#, fuzzy
+msgid "Email or Subject not given."
+msgstr "未提供电子邮件或主题。"
+
+#: inc/callback-functions.php:57 inc/hooks.php:244
+#, fuzzy, php-format
+msgid "<a href=\"%s\">Download %s</a>"
+msgstr "< a href = \" %s\" > 下载 %s </a>"
+
+#: inc/callback-functions.php:68
+#, fuzzy
+msgid "File is shared successfully"
+msgstr "文件已成功共享"
+
+#: inc/classes/class.fields.php:32 inc/classes/class.fields.php:208
+#, fuzzy
+msgid "Fields"
+msgstr "WP字段"
+
+#: inc/classes/class.fields.php:33 inc/classes/class.fields.php:209
+msgid "Value"
+msgstr "值"
+
+#: inc/classes/class.meta.php:208
+#, fuzzy
+msgid "Option"
+msgstr "选项"
+
+#: inc/classes/class.meta.php:265 inc/inputs/input.checkbox.php:38
+#: inc/inputs/input.date.php:43 inc/inputs/input.email.php:38
+#: inc/inputs/input.radio.php:38 inc/inputs/input.section.php:43
+#: inc/inputs/input.select.php:38 inc/inputs/input.text.php:38
+#: inc/inputs/input.textarea.php:38
+msgid "Title"
+msgstr "标题"
+
+#: inc/classes/class.meta.php:266 inc/inputs/input.checkbox.php:39
+#: inc/inputs/input.date.php:44 inc/inputs/input.email.php:39
+#: inc/inputs/input.radio.php:39 inc/inputs/input.select.php:39
+#: inc/inputs/input.text.php:39 inc/inputs/input.textarea.php:39
+msgid "It will be shown as field label"
+msgstr "在前端显示"
+
+#: inc/classes/class.meta.php:275
+msgid "Field ID"
+msgstr "字段 ID"
+
+#: inc/classes/class.meta.php:276 inc/inputs/input.checkbox.php:44
+#: inc/inputs/input.date.php:49 inc/inputs/input.email.php:44
+#: inc/inputs/input.hidden.php:40 inc/inputs/input.radio.php:44
+#: inc/inputs/input.select.php:44 inc/inputs/input.text.php:44
+#: inc/inputs/input.textarea.php:44
+msgid ""
+"REQUIRED: The identification name of this field, that you can insert into "
+"body email configuration. Note:Use only lowercase characters and underscores."
+msgstr "注意：此为数据库字段名称，只能使用小写字母和下划线。"
+
+#: inc/classes/class.meta.php:285 inc/file-detail-old.php:81
+#: inc/file-detail.php:95 inc/inputs/input.checkbox.php:48
+#: inc/inputs/input.date.php:53 inc/inputs/input.email.php:48
+#: inc/inputs/input.radio.php:48 inc/inputs/input.section.php:48
+#: inc/inputs/input.select.php:48 inc/inputs/input.text.php:48
+#: inc/inputs/input.textarea.php:48 templates/wpfm-main.php:145
+msgid "Description"
+msgstr "描述"
+
+#: inc/classes/class.meta.php:286 inc/inputs/input.checkbox.php:49
+#: inc/inputs/input.date.php:54 inc/inputs/input.email.php:49
+#: inc/inputs/input.radio.php:49 inc/inputs/input.select.php:49
+#: inc/inputs/input.text.php:49 inc/inputs/input.textarea.php:49
+msgid "Small description, it will be diplay near name title."
+msgstr "标题旁边的小标题描述"
+
+#: inc/classes/class.meta.php:295 inc/inputs/input.checkbox.php:64
+#: inc/inputs/input.date.php:64 inc/inputs/input.email.php:59
+#: inc/inputs/input.radio.php:70 inc/inputs/input.select.php:70
+#: inc/inputs/input.text.php:59 inc/inputs/input.textarea.php:59
+msgid "Required"
+msgstr "需要"
+
+#: inc/classes/class.meta.php:296 inc/inputs/input.checkbox.php:65
+#: inc/inputs/input.date.php:65 inc/inputs/input.email.php:60
+#: inc/inputs/input.radio.php:71 inc/inputs/input.select.php:71
+#: inc/inputs/input.text.php:60 inc/inputs/input.textarea.php:60
+msgid "Select this if it must be required."
+msgstr "此為必選項目必需選擇"
+
+#: inc/classes/class.meta.php:304 inc/inputs/input.checkbox.php:69
+#: inc/inputs/input.date.php:69 inc/inputs/input.email.php:64
+#: inc/inputs/input.radio.php:76 inc/inputs/input.select.php:76
+#: inc/inputs/input.text.php:64 inc/inputs/input.textarea.php:64
+msgid "Class"
+msgstr "类"
+
+#: inc/classes/class.meta.php:305 inc/inputs/input.checkbox.php:70
+#: inc/inputs/input.date.php:70 inc/inputs/input.email.php:65
+#: inc/inputs/input.radio.php:77 inc/inputs/input.select.php:77
+#: inc/inputs/input.text.php:65 inc/inputs/input.textarea.php:65
+msgid ""
+"Insert an additional class(es) (separateb by comma) for more personalization."
+msgstr "插入一個額外的類（以逗號分隔），以獲得更多的個性化功能。"
+
+#: inc/classes/class.meta.php:314 inc/inputs/input.checkbox.php:58
+#: inc/inputs/input.radio.php:59 inc/inputs/input.select.php:59
+msgid "Add options"
+msgstr "添加选项"
+
+#: inc/classes/class.meta.php:315
+#, fuzzy
+msgid "Enter multiple options."
+msgstr "输入多个选项。"
+
+#: inc/classes/class.meta.php:323
+#, fuzzy
+msgid "Selected Option"
+msgstr "所选选项"
+
+#: inc/classes/class.meta.php:324 inc/inputs/input.select.php:65
+#, fuzzy
+msgid "Type option name (given above) if you want already selected."
+msgstr "如果要选择该选项名称, 请键入选项名称 (上给出)。"
+
+#: inc/classes/class.meta.php:332 inc/inputs/input.checkbox.php:79
+#, fuzzy
+msgid "Checked option(s)"
+msgstr "已选中的选项"
+
+#: inc/classes/class.meta.php:333 inc/inputs/input.checkbox.php:80
+#, fuzzy
+msgid "Type option(s) name (given above) if you want already checked."
+msgstr "如果要已选中, 请键入名称 (给出)。"
+
+#: inc/classes/class.meta.php:341
+#, fuzzy
+msgid "Min checked option(s)"
+msgstr "最小选中选项"
+
+#: inc/classes/class.meta.php:342 inc/inputs/input.checkbox.php:86
+#, fuzzy
+msgid ""
+"How many options can be checked by user e.g: 2. Leave blank for default."
+msgstr "用户可以检查多少个选项, 例如: 2. 默认留空。"
+
+#: inc/classes/class.meta.php:350
+#, fuzzy
+msgid "Max checked option(s)"
+msgstr "最大选中的选项"
+
+#: inc/classes/class.meta.php:351 inc/inputs/input.checkbox.php:92
+#, fuzzy
+msgid ""
+"How many options can be checked by user e.g: 3. Leave blank for default."
+msgstr "用户可以检查多少个选项, 例如: 3. 默认留空。"
+
+#: inc/classes/class.meta.php:359
+msgid "Placeholder"
+msgstr "占位符"
+
+#: inc/classes/class.meta.php:360
+#, fuzzy
+msgid "Type field Placeholder."
+msgstr "类型字段占位符。"
+
+#: inc/classes/class.meta.php:368
+#, fuzzy
+msgid "Default value"
+msgstr "默认值"
+
+#: inc/classes/class.meta.php:369
+#, fuzzy
+msgid "Type field Default value."
+msgstr "类型字段默认值。"
+
+#: inc/classes/class.meta.php:377
+msgid "Everyone"
+msgstr "所有人"
+
+#: inc/classes/class.meta.php:378
+#, fuzzy
+msgid "Members(logged in)"
+msgstr "会员 (登录)"
+
+#: inc/classes/class.meta.php:379
+msgid "Specific roles"
+msgstr "特定的角色"
+
+#: inc/classes/class.meta.php:384
+msgid "Permission"
+msgstr "权限"
+
+#: inc/classes/class.meta.php:385
+#, fuzzy
+msgid "select permissions for view fields."
+msgstr "选择视图字段的权限。"
+
+#: inc/classes/class.meta.php:393
+#, fuzzy
+msgid "Member Roles"
+msgstr "成员角色"
+
+#: inc/classes/class.meta.php:394
+msgid "Select the member roles that can view this field on the front-end."
+msgstr "选择可以查看这个链接的用户角色"
+
+#: inc/classes/class.meta.php:401
+msgid "Default - mm/dd/yy"
+msgstr "默认 - mm/dd/yy"
+
+#: inc/classes/class.meta.php:402
+#, fuzzy
+msgid "ISO 8601 - yy-mm-dd"
+msgstr "iso 8601-yy-mm-dd"
+
+#: inc/classes/class.meta.php:403
+#, fuzzy
+msgid "Short - d M, y"
+msgstr "短-d m, y"
+
+#: inc/classes/class.meta.php:404
+#, fuzzy
+msgid "Medium - d MM, y"
+msgstr "中-d mm, y"
+
+#: inc/classes/class.meta.php:405
+#, fuzzy
+msgid "Full - DD, d MM, yy"
+msgstr "全 dd, d mm, yy"
+
+#: inc/classes/class.meta.php:406
+#, fuzzy
+msgid "With text - 'day' d 'of' MM 'in the year' yy"
+msgstr "与文本-\"天\" d ' 的 ' mm ' 在一年 ' yy"
+
+#: inc/classes/class.meta.php:411 inc/inputs/input.date.php:79
+#, fuzzy
+msgid "Date formats"
+msgstr "日期格式"
+
+#: inc/classes/class.meta.php:412 inc/inputs/input.date.php:80
+#, fuzzy
+msgid "Select date format."
+msgstr "选择日期格式。"
+
+#: inc/classes/class.meta.php:425 inc/inputs/input.text.php:24
+msgid "Text Input"
+msgstr "文本输入"
+
+#: inc/classes/class.meta.php:426
+#, fuzzy
+msgid "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-c派-方诺\" aria 隐藏 = \"true\" > </i>"
+
+#: inc/classes/class.meta.php:427
+#, fuzzy
+msgid "Textbox Field"
+msgstr "文本框字段"
+
+#: inc/classes/class.meta.php:444
+#, fuzzy
+msgid "Select Input"
+msgstr "选择输入"
+
+#: inc/classes/class.meta.php:445
+#, fuzzy
+msgid "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> "
+msgstr "< i 类 = \"fa fa-check\" aria 隐藏 = \"true\" > </i>"
+
+#: inc/classes/class.meta.php:446 templates/admin/fields.php:82
+msgid "Select Field"
+msgstr "选择字段"
+
+#: inc/classes/class.meta.php:471 inc/inputs/input.radio.php:24
+msgid "Radio Input"
+msgstr "单选框"
+
+#: inc/classes/class.meta.php:472
+#, fuzzy
+msgid "<i class=\"fa fa-dot-circle-o\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-dot-circle-o\" aria-hizar-ariars > > </i>"
+
+#: inc/classes/class.meta.php:473
+msgid "Radio Field"
+msgstr "無線電場"
+
+#: inc/classes/class.meta.php:490 inc/inputs/input.checkbox.php:24
+#, fuzzy
+msgid "Checkbox Input"
+msgstr "复选框输入"
+
+#: inc/classes/class.meta.php:491
+#, fuzzy
+msgid "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-ket-nic方诺\" aria 隐藏 = \"true\" > </i>"
+
+#: inc/classes/class.meta.php:492
+msgid "Checkbox Field"
+msgstr "复选框"
+
+#: inc/classes/class.meta.php:511 inc/inputs/input.date.php:24
+#, fuzzy
+msgid "Date Input"
+msgstr "日期输入"
+
+#: inc/classes/class.meta.php:512
+#, fuzzy
+msgid "<i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-ara-aria 隐藏 =\" true \"> </i>"
+
+#: inc/classes/class.meta.php:513
+msgid "Date Field"
+msgstr "日期字段"
+
+#: inc/classes/class.meta.php:544
+#, fuzzy
+msgid "Color Input"
+msgstr "颜色输入"
+
+#: inc/classes/class.meta.php:545 inc/classes/class.meta.php:573
+#: inc/classes/class.meta.php:591 inc/classes/class.meta.php:661
+#, fuzzy
+msgid "<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-us-plus\" aria 隐藏 = \"true\" > </i>"
+
+#: inc/classes/class.meta.php:546
+#, fuzzy
+msgid "Color Field"
+msgstr "颜色字段"
+
+#: inc/classes/class.meta.php:563
+#, fuzzy
+msgid "Show palletes"
+msgstr "显示托盘"
+
+#: inc/classes/class.meta.php:564
+#, fuzzy
+msgid "Tick if need to show a group of common colors beneath the square"
+msgstr "如果需要在正方形下方显示一组常见颜色, 请进行调整"
+
+#: inc/classes/class.meta.php:572 inc/inputs/input.email.php:24
+msgid "Email Input"
+msgstr "邮箱输入"
+
+#: inc/classes/class.meta.php:574
+msgid "Email Field"
+msgstr "电子邮件字段"
+
+#: inc/classes/class.meta.php:590
+#, fuzzy
+msgid "Url Input"
+msgstr "网址输入"
+
+#: inc/classes/class.meta.php:592
+#, fuzzy
+msgid "Url Field"
+msgstr "乌尔菲尔德"
+
+#: inc/classes/class.meta.php:608
+#, fuzzy
+msgid "Number Input"
+msgstr "数字输入"
+
+#: inc/classes/class.meta.php:609
+#, fuzzy
+msgid "<i class=\"fa fa-hashtag\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-hashtag\" aria 隐藏 = \"true\" > </i>"
+
+#: inc/classes/class.meta.php:610
+#, fuzzy
+msgid "Number Field"
+msgstr "数字字段"
+
+#: inc/classes/class.meta.php:619
+#, fuzzy
+msgid "Max. values"
+msgstr "麦克斯。值"
+
+#: inc/classes/class.meta.php:620
+#, fuzzy
+msgid "Max. values allowed, leave blank for default"
+msgstr "麦克斯。允许的值, 为默认值留空"
+
+#: inc/classes/class.meta.php:624
+#, fuzzy
+msgid "Min. values"
+msgstr "最小值"
+
+#: inc/classes/class.meta.php:625
+#, fuzzy
+msgid "Min. values allowed, leave blank for default"
+msgstr "允许的最小值, 默认值留空"
+
+#: inc/classes/class.meta.php:629
+msgid "Steps"
+msgstr "步骤"
+
+#: inc/classes/class.meta.php:630
+#, fuzzy
+msgid "specified legal number intervals"
+msgstr "指定的合法编号间隔"
+
+#: inc/classes/class.meta.php:642 inc/inputs/input.textarea.php:24
+msgid "Textarea Input"
+msgstr "多行文本"
+
+#: inc/classes/class.meta.php:643
+#, fuzzy
+msgid "<i class=\"fa fa-file-text-o\" aria-hidden=\"true\"></i>"
+msgstr "< i 类 = \"fa fa-file-text-o\" aria 隐藏 = \"true\" > </i>"
+
+#: inc/classes/class.meta.php:644
+msgid "Textarea Field"
+msgstr "多行文本字段"
+
+#: inc/classes/class.meta.php:660
+msgid "Auto Complete"
+msgstr "自动完成"
+
+#: inc/classes/class.meta.php:662
+#, fuzzy
+msgid "Auto Complete Field"
+msgstr "自动完成字段"
+
+#: inc/classes/class.meta.php:681
+#, fuzzy
+msgid "Max Select"
+msgstr "最大选择"
+
+#: inc/classes/class.meta.php:682
+#, fuzzy
+msgid "Enter number to maximum select options"
+msgstr "输入最大选择选项的编号"
+
+#: inc/cpt.php:98
+msgid "Thumbnail"
+msgstr "缩略图"
+
+#: inc/cpt.php:99
+#, fuzzy
+msgid "Tilte"
+msgstr "蒂尔特"
+
+#: inc/cpt.php:100
+#, fuzzy
+msgid "Auther"
+msgstr "作者"
+
+#: inc/cpt.php:101
+msgid "Downloads"
+msgstr "下载"
+
+#: inc/cpt.php:102 templates/wpfm-downloads.php:48 templates/wpfm-main.php:69
+msgid "Type"
+msgstr "类型"
+
+#: inc/cpt.php:103
+msgid "Location"
+msgstr "位置"
+
+#: inc/cpt.php:104
+#, fuzzy
+msgid "size"
+msgstr "区域： "
+
+#: inc/cpt.php:105
+msgid "Detail"
+msgstr "详情"
+
+#: inc/cpt.php:106
+msgid "Date"
+msgstr "日期"
+
+#: inc/cpt.php:110
+msgid "Meta"
+msgstr "Meta"
+
+#: inc/cpt.php:114
+#, fuzzy
+msgid "File Groups"
+msgstr "文件组"
+
+#: inc/cpt.php:118
+msgid "Price"
+msgstr "价格"
+
+#: inc/file-detail-old.php:27 inc/file-detail.php:35
+msgid "File Name"
+msgstr "文件名"
+
+#: inc/file-detail-old.php:33 inc/file-detail.php:41
+#, fuzzy
+msgid "File Size"
+msgstr "文件大小"
+
+#: inc/file-detail-old.php:39 inc/file-detail.php:47
+msgid "File ID"
+msgstr "文件ID"
+
+#: inc/file-detail-old.php:45 inc/file-detail.php:53
+msgid "Total Downloads"
+msgstr "总下载量"
+
+#: inc/file-detail-old.php:51 inc/file-detail.php:59
+msgid "Post Date"
+msgstr "发布日期"
+
+#: inc/file-detail-old.php:70
+#, fuzzy
+msgid "Edit Title and Description"
+msgstr "编辑标题和说明"
+
+#: inc/file-detail-old.php:76 inc/file-detail.php:90
+msgid "File Data"
+msgstr "文件数据"
+
+#: inc/file-detail-old.php:83 inc/file-detail.php:97
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: inc/file-detail-old.php:83 inc/file-detail.php:97 inc/file-detail.php:136
+#: templates/wpfm-main.php:153
+msgid "Cancel"
+msgstr "取消"
+
+#: inc/file-detail-old.php:89 inc/file-detail.php:118
+#, fuzzy
+msgid "File Meta"
+msgstr "文件元数据"
+
+#: inc/file-detail-old.php:107 inc/file-detail.php:151
+#, fuzzy
+msgid "Send File"
+msgstr "发送文件"
+
+#: inc/file-detail-old.php:114 inc/file-detail.php:158
+msgid "Email"
+msgstr "邮箱"
+
+#: inc/file-detail-old.php:118 inc/file-detail.php:162
+msgid "Subject"
+msgstr "主题"
+
+#: inc/file-detail-old.php:122 inc/file-detail.php:166
+#, fuzzy
+msgid "Message (optional)"
+msgstr "消息 (可选)"
+
+#: inc/file-detail-old.php:126 inc/file-detail.php:170
+msgid "Send"
+msgstr "发送"
+
+#: inc/file-detail-old.php:127 inc/file-detail.php:171
+#, fuzzy
+msgid "Sending file ..."
+msgstr "正在发送文件..。"
+
+#: inc/file-detail-old.php:133 inc/file-detail-old.php:154
+#: inc/file-detail.php:69 templates/admin/fields.php:117
+#, fuzzy
+msgid "Close"
+msgstr "关闭"
+
+#: inc/file-detail.php:82
+msgid "Edit Title"
+msgstr "编辑标题"
+
+#: inc/file-detail.php:127 inc/file-detail.php:132
+msgid "Edit Meta"
+msgstr "编辑元"
+
+#: inc/file-detail.php:135 templates/admin/fields.php:71
+msgid "Save Meta"
+msgstr "保存元素"
+
+#: inc/file.class.php:445
+#, fuzzy
+msgid "Download"
+msgstr "下载 %s"
+
+#: inc/files.php:61 inc/files.php:361
+#, fuzzy
+msgid "User object not found"
+msgstr "找不到用户对象"
+
+#: inc/files.php:80
+#, fuzzy
+msgid "Directory created successfully"
+msgstr "成功创建的目录"
+
+#: inc/files.php:102
+#, fuzzy
+msgid "Error while creating directory"
+msgstr "创建目录时出错"
+
+#: inc/files.php:142
+#, fuzzy
+msgid "File type not valid"
+msgstr "文件类型无效"
+
+#: inc/files.php:585
+#, fuzzy, php-format
+msgid "%s Successfully Removed"
+msgstr "%s 已成功删除"
+
+#: inc/files.php:591
+#, fuzzy, php-format
+msgid "Error while deleting %s, Try again."
+msgstr "删除 %s 时出错, 请重试。"
+
+#: inc/files.php:631
+#, fuzzy
+msgid "File Meta save successfully"
+msgstr "文件元保存成功"
+
+#: inc/files.php:685
+#, fuzzy, php-format
+msgid "no file found at %s"
+msgstr "在 %s 中找不到文件"
+
+#: inc/helpers.php:54 inc/helpers.php:66
+#, fuzzy, php-format
+msgid " %s"
+msgstr "%s"
+
+#: inc/helpers.php:314
+#, fuzzy
+msgid "File saved successfully"
+msgstr "已成功保存文件"
+
+#: inc/helpers.php:437
+msgid "Sorry, no posts matched your criteria."
+msgstr "对不起，没有职位符合您的标准。"
+
+#: inc/helpers.php:447
+#, fuzzy, php-format
+msgid " My Files (%d Items)"
+msgstr "我的文件 (% d 项)"
+
+#: inc/helpers.php:456
+#, fuzzy
+msgid " Files"
+msgstr "文件"
+
+#: inc/hooks.php:235
+#, fuzzy
+msgid "Files Uploaded"
+msgstr "上传的文件"
+
+#: inc/hooks.php:260
+#, fuzzy, php-format
+msgid "%d File uploaded by %s"
+msgid_plural "%d Files uploaded by %s"
+msgstr[0] "% d %s 上传的文件"
+
+#: inc/hooks.php:291
+#, fuzzy
+msgid " Logout"
+msgstr "登出页面"
+
+#: inc/inputs/input.checkbox.php:25
+#, fuzzy
+msgid "regular checkbox input"
+msgstr "常规复选框输入"
+
+#: inc/inputs/input.checkbox.php:43 inc/inputs/input.date.php:48
+#: inc/inputs/input.email.php:43 inc/inputs/input.hidden.php:39
+#: inc/inputs/input.radio.php:43 inc/inputs/input.select.php:43
+#: inc/inputs/input.text.php:43 inc/inputs/input.textarea.php:43
+msgid "Data name"
+msgstr "字段名称"
+
+#: inc/inputs/input.checkbox.php:53 inc/inputs/input.date.php:58
+#: inc/inputs/input.email.php:53 inc/inputs/input.radio.php:53
+#: inc/inputs/input.select.php:53 inc/inputs/input.text.php:53
+#: inc/inputs/input.textarea.php:53
+msgid "Error message"
+msgstr "错误信息"
+
+#: inc/inputs/input.checkbox.php:54 inc/inputs/input.date.php:59
+#: inc/inputs/input.email.php:54 inc/inputs/input.radio.php:54
+#: inc/inputs/input.select.php:54 inc/inputs/input.text.php:54
+#: inc/inputs/input.textarea.php:54
+msgid "Insert the error message for validation."
+msgstr "插入错误消息进行验证。"
+
+#: inc/inputs/input.checkbox.php:59 inc/inputs/input.radio.php:60
+#: inc/inputs/input.select.php:60
+msgid "Type each option per line"
+msgstr "每行输入一条内容"
+
+#: inc/inputs/input.checkbox.php:74 inc/inputs/input.date.php:74
+#: inc/inputs/input.email.php:69 inc/inputs/input.radio.php:81
+#: inc/inputs/input.select.php:81 inc/inputs/input.text.php:69
+#: inc/inputs/input.textarea.php:69
+msgid "Width"
+msgstr "宽度"
+
+#: inc/inputs/input.checkbox.php:75 inc/inputs/input.date.php:75
+#: inc/inputs/input.email.php:70 inc/inputs/input.radio.php:82
+#: inc/inputs/input.select.php:82 inc/inputs/input.text.php:70
+#: inc/inputs/input.textarea.php:70
+#, fuzzy
+msgid "Type field width in % e.g: 50%"
+msgstr "类型字段宽度 (%), 例如: 50%"
+
+#: inc/inputs/input.checkbox.php:85
+#, fuzzy
+msgid "Min. Checked option(s)"
+msgstr "最小选中的选项"
+
+#: inc/inputs/input.checkbox.php:91
+#, fuzzy
+msgid "Max. Checked option(s)"
+msgstr "麦克斯。已选中的选项"
+
+#: inc/inputs/input.date.php:25
+#, fuzzy
+msgid "regular date input"
+msgstr "常规日期输入"
+
+#: inc/inputs/input.email.php:25
+#, fuzzy
+msgid "regular email input"
+msgstr "定期的电子邮件输入"
+
+#: inc/inputs/input.email.php:75
+msgid "Send email"
+msgstr "发电子邮件"
+
+#: inc/inputs/input.email.php:76
+#, fuzzy
+msgid "Select this if you want user get this form."
+msgstr "如果希望用户获取此窗体, 请选择此选项。"
+
+#: inc/inputs/input.email.php:80
+msgid "Enable conditional logic"
+msgstr "启用条件逻辑"
+
+#: inc/inputs/input.email.php:81 inc/inputs/input.email.php:86
+#, fuzzy
+msgid "Tick it to turn conditional logic to work below"
+msgstr "将其标记为将条件逻辑转到下面的工作"
+
+#: inc/inputs/input.email.php:85
+msgid "Conditions"
+msgstr "条件"
+
+#: inc/inputs/input.hidden.php:24
+#, fuzzy
+msgid "Hidden Input"
+msgstr "隐藏的输入"
+
+#: inc/inputs/input.hidden.php:25
+#, fuzzy
+msgid "regular hidden input"
+msgstr "常规隐藏输入"
+
+#: inc/inputs/input.hidden.php:44
+msgid "Field value"
+msgstr "字段值"
+
+#: inc/inputs/input.hidden.php:45
+#, fuzzy
+msgid "you can pre-set the value of this hidden input."
+msgstr "您可以预先设置此隐藏输入的值。"
+
+#: inc/inputs/input.radio.php:25
+#, fuzzy
+msgid "regular radio input"
+msgstr "常规无线电输入"
+
+#: inc/inputs/input.radio.php:64 inc/inputs/input.select.php:64
+#, fuzzy
+msgid "Selected option"
+msgstr "所选选项"
+
+#: inc/inputs/input.radio.php:65
+#, fuzzy
+msgid "Type option name (given above) if you want already radioed."
+msgstr "如果您想要已通过无线电广播, 请键入选项名称 (给出)。"
+
+#: inc/inputs/input.section.php:29
+msgid "Section"
+msgstr "部分"
+
+#: inc/inputs/input.section.php:30
+#, fuzzy
+msgid "Form section"
+msgstr "窗体部分"
+
+#: inc/inputs/input.section.php:44
+#, fuzzy
+msgid "It will as section heading wrapped in h2"
+msgstr "它将作为部分标题包裹在 h2"
+
+#: inc/inputs/input.section.php:49
+#, fuzzy
+msgid "Type description, it will be diplay under section heading."
+msgstr "类型描述, 它将在部分标题下进行播放。"
+
+#: inc/inputs/input.select.php:24
+#, fuzzy
+msgid "Select-box Input"
+msgstr "选择框输入"
+
+#: inc/inputs/input.select.php:25
+#, fuzzy
+msgid "regular select-box input"
+msgstr "常规选择框输入"
+
+#: inc/inputs/input.select.php:103
+#, fuzzy
+msgid "Select option"
+msgstr "选择选项"
+
+#: inc/inputs/input.text.php:25
+#, fuzzy
+msgid "regular text input"
+msgstr "常规文本输入"
+
+#: inc/inputs/input.textarea.php:25
+#, fuzzy
+msgid "regular textarea input"
+msgstr "常规文本区域输入"
+
+#: templates/admin/file-access.php:19 templates/admin/file-sources.php:26
+msgid "Select User Roles"
+msgstr "选择用户角色"
+
+#: templates/admin/file-access.php:20
+#, fuzzy
+msgid "Leave blank to allow access every user including guests"
+msgstr "留空以允许访问包括来宾在内的每个用户"
+
+#: templates/admin/file-access.php:25
+#, fuzzy
+msgid "Selec User"
+msgstr "选择用户"
+
+#: templates/admin/file-access.php:26
+#, fuzzy
+msgid "Select users one by one"
+msgstr "逐一选择用户"
+
+#: templates/admin/file-access.php:37
+#, fuzzy
+msgid "Allow Guests"
+msgstr "允许的客人"
+
+#: templates/admin/file-access.php:41
+#, fuzzy
+msgid "Allow all public users to access these downloads"
+msgstr "允许所有公共用户访问这些下载"
+
+#: templates/admin/file-sources.php:20
+msgid "Select Groups"
+msgstr "选择组"
+
+#: templates/admin/file-sources.php:21
+#, fuzzy
+msgid "Select file groups to include files on download page"
+msgstr "选择要在下载页上包含文件的文件组"
+
+#: templates/admin/file-sources.php:27
+#, fuzzy
+msgid "Select user roles to include their files on download page"
+msgstr "选择用户角色以在下载页上包含其文件"
+
+#: templates/admin/file-sources.php:32
+#, fuzzy
+msgid "Selec Users"
+msgstr "选择用户"
+
+#: templates/admin/file-sources.php:33
+#, fuzzy
+msgid "Select users to include their files on download page"
+msgstr "选择用户将其文件包含在下载页上"
+
+#: templates/admin/file-sources.php:54
+#, fuzzy
+msgid "Current User Files"
+msgstr "当前用户文件"
+
+#: templates/admin/file-sources.php:58
+#, fuzzy
+msgid "It will also include current user files."
+msgstr "它还将包括当前用户文件。"
+
+#: templates/admin/ftp-files.php:10
+#, fuzzy
+msgid "Sync FTP Files"
+msgstr "同步 ftp 文件"
+
+#: templates/admin/ftp-files.php:16
+#, fuzzy
+msgid "Post FTP files"
+msgstr "发布 ftp 文件"
+
+#: templates/admin/settings.php:102
+msgid "Save settings"
+msgstr "保存设置"
+
+#: templates/wpfm-downloads.php:45 templates/wpfm-main.php:66
+msgid "Sorted by"
+msgstr "排序"
+
+#: templates/wpfm-downloads.php:47 templates/wpfm-main.php:68
+#, fuzzy
+msgid "Name"
+msgstr "名称。"
+
+#: templates/wpfm-downloads.php:53 templates/wpfm-main.php:74
+msgid "Ascending"
+msgstr "升序"
+
+#: templates/wpfm-downloads.php:59 templates/wpfm-main.php:80
+msgid "Descending"
+msgstr "降序"
+
+#: templates/wpfm-main.php:53
+#, fuzzy
+msgid "Filter by grouped :"
+msgstr "按分组筛选:"
+
+#: templates/wpfm-main.php:55
+#, fuzzy
+msgid "All"
+msgstr "更所所有设置"
+
+#: templates/wpfm-main.php:116
+#, fuzzy
+msgid "Create Directory"
+msgstr "创建目录"
+
+#: templates/wpfm-main.php:138
+msgid "Directory Name"
+msgstr "目录名称"
+
+#: templates/wpfm-main.php:152
+msgid "Create"
+msgstr "创建"
+
+#. Plugin Name of the plugin/theme
+#, fuzzy
+msgid "WP File Manager"
+msgstr "wp 文件管理器"
+
+#. Plugin URI of the plugin/theme
+#, fuzzy
+msgid "https://najeebmedia.com/"
+msgstr "https://najeebmedia.com/"
+
+#. Description of the plugin/theme
+#, fuzzy
+msgid ""
+"N-Media Frontend File Manager plugin allow site users to upload files and "
+"share with admin."
+msgstr "n-media 前端文件管理器插件允许网站用户上传文件并与管理员共享。"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "N-Media"
+msgstr "n-媒体"
+
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "najeebmedia.com"
+msgstr "najeebmedia. com"
