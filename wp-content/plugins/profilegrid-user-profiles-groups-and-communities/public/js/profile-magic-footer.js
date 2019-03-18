@@ -744,11 +744,23 @@ $('.pg-profile-tab-content:first').show();
         $('li.pm-profile-tab a').removeClass('active');         
         $(this).addClass('active');
         $('.pg-profile-tab-content').hide();
+        $('#pg-files').hide();
         $(t).find('.pm-section-content:first').show();
         $('li.hideshow ul').hide();
         $(t).fadeIn('slow');
         return false;
     });
+
+//********** TEST CODE Capstone 2019 **********
+//the styling for files is weird
+//it seems like the only way it works is if there enough time for it to render and then hide it
+setTimeout(stopTimer,1400);
+$('#pg-files').css("visibility", "hidden");
+function stopTimer() {
+    console.log("timer up");
+    $('#pg-files').css("visibility", "visible");
+    $('#pg-files').hide();
+}
 
 if($(this).hasClass('active')){ //this is the start of our condition 
     $('li.pm-profile-tab a').removeClass('active');         

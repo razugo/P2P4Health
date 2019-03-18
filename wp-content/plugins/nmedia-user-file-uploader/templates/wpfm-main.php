@@ -17,7 +17,10 @@
 		 ?>
 			<div class="navbar navbar-default">
 				<div class="container-fluid">
-					<!-- //********** TEST CODE Capstone 2019 ********** -->
+					<!-- 
+						//********** TEST CODE Capstone 2019 ********** 
+						added return false
+					-->
 			        <form class="navbar-form navbar-right hidden-xs" role="search" onsubmit="return false;">
 			        	<input type="text" class="form-control" placeholder="Search Files" name="srch-term" id="search_files">
 			        </form>
@@ -27,7 +30,12 @@
 							foreach ($wpfm_menu as $menu) { 
 								
 								?>
-								<li class=""><a href="<?php echo esc_url($menu['link']);?>">
+								<!-- 
+									//********** TEST CODE Capstone 2019 ********** 
+									added return false
+									made href go to current page
+								-->
+								<li class=""><a href="#" onclick="return false;">
 									<span class="glyphicon <?php echo esc_attr($menu['icon']);?>"></span> <?php echo $menu['label']; ?></a>
 								</li>
 								

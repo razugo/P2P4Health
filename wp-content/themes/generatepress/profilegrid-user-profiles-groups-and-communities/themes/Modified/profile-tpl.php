@@ -106,7 +106,7 @@ else
               <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-upload-photos"><?php _e('Upload Photos','profile-magic');?></a></li>
             <?php endif; ?>
 
-            <?php if($uid == $current_user->ID): ?>
+            <?php if($uid == $current_user->ID && !$is_provider): ?>
               <li class="pm-profile-tab pm-pad10"><a class="pm-dbfl" href="#pg-files"><?php _e('Files','profile-magic');?></a></li>
             <?php endif; ?>
 
@@ -241,10 +241,16 @@ else
           <?php echo do_shortcode("[users_gallery g_page=\"upload\"]"); ?>
         </div>
 
-        <div id="pg-files" class="pm-dbfl pg-profile-tab-content">
-          <h1> Files </h1>
-          <?php echo do_shortcode("[nm-wp-file-uploader]"); ?>
+        <div id="pg-files" class="">
+          <div id="pg-files-wrapper">
+            <?php echo do_shortcode("[nm-wp-file-uploader]"); ?>
+          </div>
         </div>
+        <style>
+          #pg-files-wrapper {
+            margin-top: 100px;
+          }
+        </style>
    
        <?php if($uid == $current_user->ID && $dbhandler->get_global_option_value('pm_enable_private_messaging','1')==1): ?>
         <div id="pg-messages" class="pm-dbfl pg-profile-tab-content">
