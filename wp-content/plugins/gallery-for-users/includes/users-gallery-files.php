@@ -57,6 +57,7 @@ class Wpug_users_gallery_files {
 
         $gallery_items = get_posts($args);
         echo '<div class="eq-row">';
+        $number = 0;
         foreach ($gallery_items as $item) {
             $post_id = $item->ID;
             $post_title = $item->post_title;
@@ -75,18 +76,25 @@ class Wpug_users_gallery_files {
             ?>
             <div class="overview-blocks">
                 <div class="overview-block user-files">
-                    <img src='<?php echo esc_url($post_thumb); ?>' alt="<?php echo esc_attr($post_title); ?>">
+                    <?php if($post_type == 'video'): ?>
+                        <iframe style="width=100%; height=100%" src="<?php echo $video_url; ?>" allowfullscreen></iframe>
+                    <?php else: ?>
+                        <img id="myImg<?php echo $number; ?>" src='<?php echo esc_url($post_image); ?>' alt="<?php echo esc_attr($post_title); ?>">
+                    <?php endif; ?>
+                    <div class="name-block"><?php echo esc_html($post_title); ?></div>
+
                     <!--Delete item form-->
                     <!--
                         //********** TEST CODE Capstone 2019 **********
+                        added the wrapping php if
                     -->
                     <?php if($profile_id == $current_user->ID): ?>
-                    <form action="" name="delete_user_gallery_item" method="post" class="delete-file">
-                        <?php wp_nonce_field('user_gallery_nonce', 'user_gallery_nonce'); ?>
-                        <input type="hidden" name="post_id" value="<?php echo esc_attr($post_id); ?>">
-                        <input type="hidden" name="author_id" value="<?php echo esc_attr($user_id); ?>">
-                        <input type="submit" class="users_gallery_button" name="user_gallery_item_delete" value="<?php _e('Delete', 'wp-users-gallery'); ?>">
-                    </form>
+                        <form action="" name="delete_user_gallery_item" method="post" class="delete-file">
+                            <?php wp_nonce_field('user_gallery_nonce', 'user_gallery_nonce'); ?>
+                            <input type="hidden" name="post_id" value="<?php echo esc_attr($post_id); ?>">
+                            <input type="hidden" name="author_id" value="<?php echo esc_attr($user_id); ?>">
+                            <input type="submit" class="users_gallery_button" name="user_gallery_item_delete" value="<?php _e('Delete', 'wp-users-gallery'); ?>">
+                        </form>
                     <?php endif; ?>
                 </div>
 
@@ -94,6 +102,7 @@ class Wpug_users_gallery_files {
             <?php
         }
         echo '</div>';
+        $number = $number + 1;
     }
 
     /**

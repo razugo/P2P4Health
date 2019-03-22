@@ -81,13 +81,16 @@ class Wpug_users_gallery_upload
 		  	<!--If Video element-->
 		  	<fieldset id="gallery_video" style="display:none;">
 		  		<fieldset>
-		  			<label for="gallery_item_video_url"><?php _e('Youtube video URL', 'wp-users-gallery'); ?></label>
+		  			<label for="gallery_item_video_url"><?php _e('Youtube video URL (embeded link)', 'wp-users-gallery'); ?></label>
 					<input type="text" name="gallery_item_video_url" id="gallery_item_video_url" value="" placeholder="<?php _e('Video url', 'wp-users-gallery'); ?>" required>
 				</fieldset>
-				<fieldset>
+				<!--
+					//********** TEST CODE Capstone 2019 **********
+				-->
+				<!-- <fieldset>
 		  			<label for="gallery_item_video_thumb"><?php _e('Thumbnail image (Optional)', 'wp-users-gallery'); ?></label>
 		  			<input type="file" name="gallery_item_video_thumb" id="gallery_item_video_thumb"  multiple="false"/>
-		  		</fieldset>
+		  		</fieldset> -->
 		  	</fieldset>
 
 			<input id="submit" class="users_gallery_button submit" name="submit" type="submit" value="<?php _e('Submit', 'wp-users-gallery'); ?>" />

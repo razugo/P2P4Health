@@ -56,7 +56,7 @@ Plugin name: user-gallery
 #user-gallery-2hats.user-gallery-2hats .overview-blocks {
     float: left;
     padding: 0 7.5px;
-    width: 25%;
+    width: 33%;
 }
 @media (max-width: 991px) {
     #user-gallery-2hats.user-gallery-2hats .overview-blocks {

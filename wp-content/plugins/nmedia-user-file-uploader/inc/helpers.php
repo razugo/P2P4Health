@@ -11,15 +11,22 @@ function wpfm_pa($arr){
     echo '</pre>';
 }
 
+//********** TEST CODE Capstone 2019 **********
+// modified to use include rather than include_once
 // loading template files
-function wpfm_load_templates( $template_name, $vars = null) {
+function wpfm_load_templates( $template_name, $vars = null, $once = true) {
     if( $vars != null && is_array($vars) ){
     extract( $vars );
     }
 
     $template_path =  WPFM_PATH . "/templates/{$template_name}";
     if( file_exists( $template_path ) ){
-    	include_once( $template_path );
+        if($once) {
+            include_once( $template_path );
+        } else {
+            include( $template_path );
+        }
+    	
     } else {
      die( "Error while loading file {$template_path}" );
     }

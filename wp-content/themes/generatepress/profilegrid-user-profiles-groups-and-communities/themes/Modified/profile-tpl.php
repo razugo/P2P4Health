@@ -233,7 +233,10 @@ else
         -->
         <div id="pg-photos" class="pm-dbfl pg-profile-tab-content">
           <h1>Photos</h1>
-          <?php echo do_shortcode("[users_gallery g_page=\"files\" profile_id=" . $uid . "]"); ?>
+          <?php 
+            echo do_shortcode("[users_gallery g_page=\"files\" profile_id=" . $uid . "]"); 
+            //echo do_shortcode("[users_gallery g_page=\"overview\"]");
+          ?>
         </div>
 
         <div id="pg-upload-photos" class="pm-dbfl pg-profile-tab-content">
@@ -252,15 +255,19 @@ else
           }
         </style>
    
-       <?php if($uid == $current_user->ID && $dbhandler->get_global_option_value('pm_enable_private_messaging','1')==1): ?>
-        <div id="pg-messages" class="pm-dbfl pg-profile-tab-content">
-        <?php
-        if(!isset($rid)) 
-            $rid='';
-            $pmhtmlcreator->pm_get_user_messenger($rid);  
-        ?>
+        <?php if($uid == $current_user->ID && $dbhandler->get_global_option_value('pm_enable_private_messaging','1')==1): ?>
+          <div id="pg-messages" class="pm-dbfl pg-profile-tab-content">
+            <?php
+            if(!isset($rid)) 
+                $rid='';
+                $pmhtmlcreator->pm_get_user_messenger($rid);  
+            ?>
+            <div id="conversation-files" style="margin-top: 750px;">
+              <?php //echo do_shortcode("[nm-wp-file-uploader group_id=\"1\"]"); ?>
             </div>
+          </div>
         <?php endif;?>
+
          <?php if($uid == $current_user->ID):?>
         <div id="pg-notifications" class="pm-difl pg-profile-tab-content">
         <?php $pmhtmlcreator->pm_get_notification_html($uid); ?>
