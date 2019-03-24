@@ -59,9 +59,18 @@ function wpsl_create_underscore_templates( $template ) {
         $listing_template .= "\t\t\t" . '</p>' . "\r\n";
 
         //********** TEST CODE Capstone 2019 **********
+        // Include the category names.
+        $listing_template .= "\t\t\t" . '<% if ( terms ) { %>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<p>' . __( 'Categories:', 'wpsl' ) . ' <%= terms %></p>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
+
         // Check if the 'appointment_url' contains data before including it.
         $listing_template .= "\t\t\t" . '<% if ( profile_url ) { %>' . "\r\n";
         $listing_template .= "\t\t\t" . '<p><a href="<%= profile_url %>">' . __( 'View Profile', 'wpsl' ) . '</a></p>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
+
+        $listing_template .= "\t\t\t" . '<% if ( url ) { %>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<p><a href="<%= url %>">' . __( 'Url', 'wpsl' ) . '</a></p>' . "\r\n";
         $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
         
         // Show the phone, fax or email data if they exist.
@@ -79,7 +88,8 @@ function wpsl_create_underscore_templates( $template ) {
             $listing_template .= "\t\t\t" . '</p>' . "\r\n";
         }
         
-        $listing_template .= "\t\t\t" . wpsl_more_info_template() . "\r\n"; // Check if we need to show the 'More Info' link and info
+        //********** TEST CODE Capstone 2019 **********
+        // $listing_template .= "\t\t\t" . wpsl_more_info_template() . "\r\n"; // Check if we need to show the 'More Info' link and info
         $listing_template .= "\t\t" . '</div>' . "\r\n";
         $listing_template .= "\t\t" . '<div class="wpsl-direction-wrap">' . "\r\n";
         

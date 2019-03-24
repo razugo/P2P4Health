@@ -97,6 +97,34 @@ require get_template_directory() . '/inc/structure/post-meta.php';
 require get_template_directory() . '/inc/structure/sidebars.php';
 
 //********** TEST CODE Capstone 2019 **********
+
+add_filter( 'wpsl_store_meta', 'custom_store_meta', 10, 2 );
+
+function custom_store_meta( $store_meta, $store_id ) {
+    
+    $terms = wp_get_post_terms( $store_id, 'wpsl_store_category' );
+    
+    $store_meta['terms'] = '';
+    
+    if ( $terms ) {
+        if ( !is_wp_error( $terms ) ) {
+            if ( count( $terms ) > 1 ) {
+                $location_terms = array();
+
+                foreach ( $terms as $term ) {
+                    $location_terms[] = $term->name;
+                }
+
+                $store_meta['terms'] = implode( ', ', $location_terms );
+            } else {
+                $store_meta['terms'] = $terms[0]->name;    
+            }
+        }
+    }
+    
+    return $store_meta;
+}
+
 add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
 
 function custom_meta_box_fields( $meta_fields ) {
