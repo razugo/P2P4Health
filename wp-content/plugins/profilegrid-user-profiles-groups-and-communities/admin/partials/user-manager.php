@@ -256,6 +256,8 @@ $pagination = $dbhandler->pm_get_pagination($num_of_pages,$pagenum);
         <th><?php _e('User Email','profile-magic');?></th>
         <th><?php _e('Status','profile-magic');?></th>
         <th><?php _e('Action','profile-magic');?></th>
+        <!-- ********** TEST CODE Capstone 2019 ********** -->
+        <th><?php _e('Verify','profile-magic');?></th>
       </tr>
       <?php
                         if(!empty($users))
@@ -281,6 +283,34 @@ $pagination = $dbhandler->pm_get_pagination($num_of_pages,$pagenum);
             <td><?php echo $entry->user_email;?></td>
             <td><?php echo ($pmrequests->profile_magic_get_user_field_value($entry->ID,'rm_user_status')==1)?__('Inactive','profile-magic'):__('Active','profile-magic');?></td>
             <td><a href="admin.php?page=pm_profile_view&id=<?php echo $entry->ID;?>"><i class="fa fa-eye" aria-hidden="true"></i><?php _e('View','profile-magic');?></a></td>
+            <!-- ********** TEST CODE Capstone 2019 ********** -->
+            <?php
+              $button_state = $dbhandler->get_button_state($entry->ID);
+              
+              
+              if($button_state == 0){
+                //disabled
+                ?>
+                <td><button disabled> disabled </button></td>
+                <?php
+              }
+              else if ($button_state == 1){
+                //verify
+
+                ?>
+                <td><button submit> verify </button></td>
+                <?php
+              }
+              else{
+                // update
+                ?>
+                <td><button submit> update </button></td>
+                <?php
+              }
+
+
+            ?>
+            
           </tr>
           <?php } 
                         }

@@ -930,6 +930,7 @@ class Profile_Magic_Public {
             die;
     }
 
+    //********** TEST CODE Capstone 2019 **********
     /*
     changed so only providers are suggested in messaging
     $meta_args = array('status'=>'0');
@@ -938,35 +939,35 @@ class Profile_Magic_Public {
     */
 
     public function pm_autocomplete_user_search(){
-    $dbhandler = new PM_DBhandler;
-    $pmrequests = new PM_request;
-    $uid = wp_get_current_user()->ID;
-    $name = filter_input(INPUT_POST, 'name');
-    $meta_args = array('gid'=>2);
-    $search =$name; 
-    $limit = 20;
-    $exclude = array();
-    $exclude[] = $uid;
-    $meta_query_array = $pmrequests->pm_get_user_meta_query($meta_args);
-    $users =  $dbhandler->pm_get_all_users($search,$meta_query_array,'',0,$limit,'ASC','ID',$exclude);
-    $return=array();      
-    if(!empty($users))
-    {
-                
-        foreach($users as $user)
-        { 
-            if($user->ID!=$uid)
-            {
-                $user_info['id']=$user->ID;
-                $user_info['label']=$user->user_login;
-                $return[]=$user_info;
+        $dbhandler = new PM_DBhandler;
+        $pmrequests = new PM_request;
+        $uid = wp_get_current_user()->ID;
+        $name = filter_input(INPUT_POST, 'name');
+        $meta_args = array('gid'=>2);
+        $search =$name; 
+        $limit = 20;
+        $exclude = array();
+        $exclude[] = $uid;
+        $meta_query_array = $pmrequests->pm_get_user_meta_query($meta_args);
+        $users =  $dbhandler->pm_get_all_users($search,$meta_query_array,'',0,$limit,'ASC','ID',$exclude);
+        $return=array();      
+        if(!empty($users))
+        {
+                    
+            foreach($users as $user)
+            { 
+                if($user->ID!=$uid)
+                {
+                    $user_info['id']=$user->ID;
+                    $user_info['label']=$user->user_login;
+                    $return[]=$user_info;
+                }
             }
         }
+        $data = json_encode($return);
+        echo $data;
+        die;
     }
-          $data = json_encode($return);
-          echo $data;
-          die;
-}
 
    public function pm_advance_user_search()
    {  

@@ -399,5 +399,44 @@ class PM_DBhandler {
 	
 		$page_links = paginate_links( $args );
 		return $page_links;
-	}
+    }
+    
+
+
+    //********** TEST CODE Capstone 2019 **********
+
+    /**
+     * from id, get the profider name, (which is the practice name)
+     * search in posts for posts that have that name, 
+     */
+    public function get_button_state($ID) {
+
+        $pmrequests = new PM_request;
+
+        $is_provider = $pmrequests->pm_is_provider($ID);
+
+        if(!$is_provider) {
+            return 0;
+        }
+
+        $user_info = get_userdata($ID);
+        $name = get_user_meta($ID, 'first_name', true);
+
+        if(post_exists($name) == 0){
+            return 1;
+        }
+
+        return 2;
+    }
+
+    /**
+     * 
+     * gets the users id that is wanted to be verified
+     * use that to get all info from wp_usermeta
+     * use that to upload to wp_post and wp_postmeta
+     * 
+     */
+    public function verify_provider($ID) {
+
+    }
 }

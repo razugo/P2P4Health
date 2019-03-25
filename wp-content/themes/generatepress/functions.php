@@ -144,7 +144,10 @@ function custom_meta_box_fields( $meta_fields ) {
         ),
         'profile_url' => array(
             'label' => __( 'Profile', 'wpsl' )
-        )
+		),
+		'postal_code' => array(
+			'label' => __( 'Postal Code', 'wpsl')
+		)
     );
 
     return $meta_fields;
