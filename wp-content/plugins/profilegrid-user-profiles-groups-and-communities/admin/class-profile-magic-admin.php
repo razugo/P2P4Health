@@ -890,25 +890,38 @@ class Profile_Magic_Admin {
             $user_meta = get_user_meta($uid);
 
             $post_args;
+            $post_data;
             
-            $name = $user_meta['first_name'];
-            
-            $post_args['address'] = $user_meta['pm_field_14'];
-            $post_args['city'] = $user_meta['pm_field_32'];
-            $post_args['state_province'] = $user_meta['pm_field_30'];
-            $post_args['postal_code'] = $user_meta['pm_field_28'];
-            $post_args['country'] = $user_meta['pm_field_33'];
-            $post_args['phone'] = $user_meta['pm_filed_23'];
-            $post_args['url'] = $user_info->data->user_url;
-            $post_args['profile_url'] = "/pm_profile?uid=" . $uid;
-            $post_args['category']= $user_meta['pm_filed_35'];
-            $post_args['ID'] = post_exists($name);
+            // 'wpsl_id'     => 'ID',
+            // 'name'        => 'post_title',
+            // 'status'      => 'post_status',
+            // 'permalink'   => 'post_name',
+            // 'description' => 'post_content',
+            // 'excerpt'     => 'post_excerpt',
+            // 'author'      => 'post_author',
+            // 'date'        => 'post_date'
 
-            $post_fields = array_flip( wpsl_wp_post_field_map() );
+            $post_args['ID'] = post_exists($name);
+            $post_args['post_title'] = $user_meta['first_name'];
+            $post_args['post_status'] = '';
+            $post_args['post_name'] = '';
+            $post_args['post_content'] = '';
+            $post_args['post_excerpt'] = '';
+            $post_args['post_author'] = wp_get_current_user();
+            $post_args['post_date'] = '';
+            
+            $post_meta['address'] = $user_meta['pm_field_14'];
+            $post_meta['city'] = $user_meta['pm_field_32'];
+            $post_meta['state_province'] = $user_meta['pm_field_30'];
+            $post_meta['postal_code'] = $user_meta['pm_field_28'];
+            $post_meta['country'] = $user_meta['pm_field_33'];
+            $post_meta['phone'] = $user_meta['pm_field_23'];
+            $post_meta['url'] = $user_info->data->user_url;
+            $post_meta['profile_url'] = "/pm_profile?uid=" . $uid;
+            $post_meta['category']= $user_meta['pm_field_35'];
 
             $add_data  = true;
-            $post_args = get_post_args( $post_fields, $post_args );
-            $wpsl_id   = isset( $post_args['ID'] ) ? $post_args['ID'] : '';
+            $wpsl_id  = isset( $post_args['ID'] ) ? $post_args['ID'] : '';
 
             /*
              * Check if we need to create a new store location,
@@ -968,6 +981,24 @@ class Profile_Magic_Admin {
             // }
 
             echo "success";
+
+            die;
+        }
+
+        function wpsl_wp_post_field_map() {
+
+            $wp_field_map = array(
+                'wpsl_id'     => 'ID',
+                'name'        => 'post_title',
+                'status'      => 'post_status',
+                'permalink'   => 'post_name',
+                'description' => 'post_content',
+                'excerpt'     => 'post_excerpt',
+                'author'      => 'post_author',
+                'date'        => 'post_date'
+            );
+        
+            return $wp_field_map;
         }
 
         public function get_post_args( $post_fields, $store_location ) {
