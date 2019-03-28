@@ -883,9 +883,36 @@ class Profile_Magic_Admin {
 
 
         //********** TEST CODE Capstone 2019 **********
-        public function profile_magic_verify_upgrade_user() {
+        public function profile_magic_verify_update_user() {
             $uid = filter_input(INPUT_POST, 'uid');
             echo "Hello";
+
+            $user_info = get_userdate($uid);
+            $user_meta = get_user_meta($uid);
+
+            $name = $user_meta['name'];
+            $address = $user_meta['pm_field_32'];
+            $city = $user_meta['pm_field_30'];
+            $state_province = $user_meta['pm_field_28'];
+            $Country = $user_meta['pm_field_33'];
+            $phone = $user_meta['pm_filed_23'];
+            $email = $user_meta['pm_filed_22'];
+            $description = $user_meta['pm_filed_21'];
+            $category = $user_meta['pm_filed_35'];
+
+
+            
+            $postID = post_exists($name);
+            // post does not exist
+            if($postID == 0){
+
+
+                $postID = wp_insert_post( $post_args, true );
+            }
+            else {
+
+            }
+
             die;
         }
         
