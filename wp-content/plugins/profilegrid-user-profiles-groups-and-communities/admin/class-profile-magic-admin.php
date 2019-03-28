@@ -901,14 +901,20 @@ class Profile_Magic_Admin {
             // 'author'      => 'post_author',
             // 'date'        => 'post_date'
 
-            $post_args['ID'] = post_exists($name);
-            $post_args['post_title'] = $user_meta['first_name'];
+            // var_dump($user_meta['first_name']);
+            // echo "\n" . $user_meta['first_name'] . "\n";
+            // echo post_exists($user_meta['first_name'][0]) . " ";
+
+            $post_args['ID'] = post_exists($user_meta['first_name'][0]);
+            $post_args['post_title'] = $user_meta['first_name'][0];
             $post_args['post_status'] = '';
             $post_args['post_name'] = '';
             $post_args['post_content'] = '';
             $post_args['post_excerpt'] = '';
             $post_args['post_author'] = wp_get_current_user();
             $post_args['post_date'] = '';
+
+            // var_dump($post_args);
             
             $post_meta['address'] = $user_meta['pm_field_14'];
             $post_meta['city'] = $user_meta['pm_field_32'];
@@ -921,7 +927,7 @@ class Profile_Magic_Admin {
             $post_meta['category']= $user_meta['pm_field_35'];
 
             $add_data  = true;
-            $wpsl_id  = isset( $post_args['ID'] ) ? $post_args['ID'] : '';
+            $wpsl_id  = (isset( $post_args['ID'] ) && $post_args['ID'] != 0)? $post_args['ID'] : '';
 
             /*
              * Check if we need to create a new store location,
@@ -930,32 +936,35 @@ class Profile_Magic_Admin {
              * Updating existing location data requires a wpsl_id 
              * that's assigned to a 'wpsl_stores' post type.
              */
-            // if ( !strlen( trim( $wpsl_id ) ) ) {
-            //     $post_args['post_type'] = 'wpsl_stores';
+            if ( !strlen( trim( $wpsl_id ) ) ) {
+                $post_args['post_type'] = 'wpsl_stores';
 
-            //     // If no post_status is provided, then we default to 'publish'.
-            //     if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
-            //         $post_args['post_status'] = 'publish';
-            //     }
+                // If no post_status is provided, then we default to 'publish'.
+                if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
+                    $post_args['post_status'] = 'publish';
+                }
 
-            //     $post_id = wp_insert_post( $post_args, true );
-            // } else if ( is_numeric( $wpsl_id ) ) {
+                $post_id = wp_insert_post( $post_args, true );
+                echo "inserting new post" . " ";
+            } else if ( is_numeric( $wpsl_id ) ) {
 
-            //     /* 
-            //      * Check if the imported 'wpsl_id' belongs 
-            //      * to a 'wpsl_stores' post types. 
-            //      * 
-            //      * If this is not the case, then we create a WP_Error.
-            //      */
-            //     if ( get_post_type( $wpsl_id ) == 'wpsl_stores' ) {
-            //         $add_data = false;
-            //         $post_id  = wp_update_post( $post_args, true );
-            //     } else {
-            //         $post_id = new WP_Error( 'invalid_id', sprintf( __( 'Update failed! The provided wpsl_id %s doesn\'t belong to a store location.', 'wpsl-csv' ), $store_location['wpsl_id'] ) );
-            //     }
-            // } else {
-            //     $post_id  = '';
-            // }
+                /* 
+                 * Check if the imported 'wpsl_id' belongs 
+                 * to a 'wpsl_stores' post types. 
+                 * 
+                 * If this is not the case, then we create a WP_Error.
+                 */
+                if ( get_post_type( $wpsl_id ) == 'wpsl_stores' ) {
+                    $add_data = false;
+                    $post_id  = wp_update_post( $post_args, true );
+                } else {
+                    $post_id = new WP_Error( 'invalid_id', sprintf( __( 'Update failed! The provided wpsl_id %s doesn\'t belong to a store location.', 'wpsl-csv' ), $store_location['wpsl_id'] ) );
+                }
+                echo "updating post" . " ";
+            } else {
+                $post_id  = '';
+                echo "something went wrong" . " ";
+            }
 
             // $meta_keys = array_values( array_diff( wpsl_get_field_names( false ), array( 'hours' ) ) );
 
