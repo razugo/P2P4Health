@@ -885,35 +885,46 @@ class Profile_Magic_Admin {
         //********** TEST CODE Capstone 2019 **********
         public function profile_magic_verify_update_user() {
             $uid = filter_input(INPUT_POST, 'uid');
-            echo "Hello";
 
-            $user_info = get_userdate($uid);
+            $user_info = get_userdata($uid);
             $user_meta = get_user_meta($uid);
 
-            $name = $user_meta['name'];
-            $address = $user_meta['pm_field_32'];
-            $city = $user_meta['pm_field_30'];
-            $state_province = $user_meta['pm_field_28'];
-            $Country = $user_meta['pm_field_33'];
-            $phone = $user_meta['pm_filed_23'];
-            $email = $user_meta['pm_filed_22'];
-            $description = $user_meta['pm_filed_21'];
-            $category = $user_meta['pm_filed_35'];
-
-
+            var_dump($user_info);
+            // foreach($user_info as $key => $value) {
+            //     echo $key . " is " .  $value;
+            // }
             
-            $postID = post_exists($name);
-            // post does not exist
-            if($postID == 0){
+            die;
 
+            $post_args;
+            //if(isset($user_meta['first_name'] && !empty($user_meta['first_name']))
+            $name = $user_meta['first_name'];
+            //if(isset($user_meta['first_name'] && !empty($user_meta['first_name']))
+            $post_args['address'] = $user_meta['pm_field_14'];
+            $post_args['city'] = $user_meta['pm_field_32'];
+            $post_args['state_province'] = $user_meta['pm_field_30'];
+            $post_args['postal_code'] = $user_meta['pm_field_28'];
+            $post_args['country'] = $user_meta['pm_field_33'];
+            $post_args['phone'] = $user_meta['pm_filed_23'];
+            $post_args['url'] = $user_info['data']['user_url'];
+            // // $post_args['profile_url'] = "/pm_profile?uid=" . $uid;
+            // $post_args['category']= $user_meta['pm_filed_35'];
 
-                $postID = wp_insert_post( $post_args, true );
-            }
-            else {
-
-            }
+            var_dump($post_args);
+            var_dump($user_info);
 
             die;
+            
+            // $postID = post_exists($name);
+            // // post does not exist
+            // if($postID == 0){
+
+
+            //     $postID = wp_insert_post( $post_args, true );
+            // }
+            // else {
+
+            // }
         }
         
         public function pm_load_export_fields_dropdown()

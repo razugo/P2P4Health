@@ -207,7 +207,7 @@ class Profile_Magic {
 		$this->loader->add_action( 'wp_ajax_pm_activate_user_by_email', $plugin_admin, 'profile_magic_activate_user_by_email' );
 				
 		//********** TEST CODE Capstone 2019 **********
-		$this->loader->add_action( 'wp_ajax_pm_verify_upgrade_user', $plugin_admin, 'profile_magic_verify_upgrade_user' );
+		$this->loader->add_action( 'wp_ajax_pm_verify_update_user', $plugin_admin, 'profile_magic_verify_update_user' );
 
 		$this->loader->add_action( 'show_user_profile', $plugin_admin, 'profile_magic_show_user_fields' );
 		$this->loader->add_action( 'edit_user_profile', $plugin_admin, 'profile_magic_show_user_fields' );

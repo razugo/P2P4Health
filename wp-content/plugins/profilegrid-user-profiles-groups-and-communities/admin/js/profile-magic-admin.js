@@ -976,6 +976,26 @@ function pm_ajax_sections_dropdown(gid)
 		
 }
 
+//********** TEST CODE Capstone 2019 **********
+function pm_ajax_verify_update_user(uid, button_id) {
+	console.log("function called");
+	var data = {
+					'action': 'pm_verify_update_user',
+					'uid' : uid
+				};
+
+	jQuery('#' + button_id).prop('disabled', true);
+
+	jQuery.post(pm_ajax_object.ajax_url, data, function(response) {
+		if(response)
+		{
+			console.log(response);
+			jQuery('#' + button_id).prop('disabled', false);
+		}
+		
+	});	
+}
+
 jQuery(function () {
 jQuery('.pm_sortable_tabs').sortable({
 		axis: 'y',

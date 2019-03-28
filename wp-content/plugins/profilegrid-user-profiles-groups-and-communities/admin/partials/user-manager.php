@@ -290,21 +290,19 @@ $pagination = $dbhandler->pm_get_pagination($num_of_pages,$pagenum);
               
               if($button_state == 0){
                 //disabled
-                ?>
-                <td><button disabled> disabled </button></td>
-                <?php
+                //do nothing
               }
               else if ($button_state == 1){
                 //verify
 
                 ?>
-                <td><button submit> verify </button></td>
+                <td><button id="button_number_<?php echo $entry->ID; ?>" onclick="pm_ajax_verify_update_user(<?php echo $entry->ID; ?>, 'button_number_<?php echo $entry->ID; ?>' ); return false; "> verify </button></td>
                 <?php
               }
               else{
                 // update
                 ?>
-                <td><button submit> update </button></td>
+                <td><button id="button_number_<?php echo $entry->ID; ?>" onclick="pm_ajax_verify_update_user(<?php echo $entry->ID; ?>, 'button_number_<?php echo $entry->ID; ?>'); return false; "> update </button></td>
                 <?php
               }
 
