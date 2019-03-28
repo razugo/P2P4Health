@@ -880,6 +880,14 @@ class Profile_Magic_Admin {
        wp_redirect( esc_url_raw( $redirect_url ) );exit;
         die;
         }
+
+
+        //********** TEST CODE Capstone 2019 **********
+        public function profile_magic_verify_upgrade_user() {
+            $uid = filter_input(INPUT_POST, 'uid');
+            echo "Hello";
+            die;
+        }
         
         public function pm_load_export_fields_dropdown()
         {
