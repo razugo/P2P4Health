@@ -889,42 +889,109 @@ class Profile_Magic_Admin {
             $user_info = get_userdata($uid);
             $user_meta = get_user_meta($uid);
 
-            var_dump($user_info);
-            // foreach($user_info as $key => $value) {
-            //     echo $key . " is " .  $value;
-            // }
-            
-            die;
-
             $post_args;
-            //if(isset($user_meta['first_name'] && !empty($user_meta['first_name']))
+            
             $name = $user_meta['first_name'];
-            //if(isset($user_meta['first_name'] && !empty($user_meta['first_name']))
+            
             $post_args['address'] = $user_meta['pm_field_14'];
             $post_args['city'] = $user_meta['pm_field_32'];
             $post_args['state_province'] = $user_meta['pm_field_30'];
             $post_args['postal_code'] = $user_meta['pm_field_28'];
             $post_args['country'] = $user_meta['pm_field_33'];
             $post_args['phone'] = $user_meta['pm_filed_23'];
-            $post_args['url'] = $user_info['data']['user_url'];
-            // // $post_args['profile_url'] = "/pm_profile?uid=" . $uid;
-            // $post_args['category']= $user_meta['pm_filed_35'];
+            $post_args['url'] = $user_info->data->user_url;
+            $post_args['profile_url'] = "/pm_profile?uid=" . $uid;
+            $post_args['category']= $user_meta['pm_filed_35'];
+            $post_args['ID'] = post_exists($name);
 
-            var_dump($post_args);
-            var_dump($user_info);
+            $post_fields = array_flip( wpsl_wp_post_field_map() );
 
-            die;
+            $add_data  = true;
+            $post_args = get_post_args( $post_fields, $post_args );
+            $wpsl_id   = isset( $post_args['ID'] ) ? $post_args['ID'] : '';
+
+            /*
+             * Check if we need to create a new store location,
+             * or update existing location data. 
+             * 
+             * Updating existing location data requires a wpsl_id 
+             * that's assigned to a 'wpsl_stores' post type.
+             */
+            // if ( !strlen( trim( $wpsl_id ) ) ) {
+            //     $post_args['post_type'] = 'wpsl_stores';
+
+            //     // If no post_status is provided, then we default to 'publish'.
+            //     if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
+            //         $post_args['post_status'] = 'publish';
+            //     }
+
+            //     $post_id = wp_insert_post( $post_args, true );
+            // } else if ( is_numeric( $wpsl_id ) ) {
+
+            //     /* 
+            //      * Check if the imported 'wpsl_id' belongs 
+            //      * to a 'wpsl_stores' post types. 
+            //      * 
+            //      * If this is not the case, then we create a WP_Error.
+            //      */
+            //     if ( get_post_type( $wpsl_id ) == 'wpsl_stores' ) {
+            //         $add_data = false;
+            //         $post_id  = wp_update_post( $post_args, true );
+            //     } else {
+            //         $post_id = new WP_Error( 'invalid_id', sprintf( __( 'Update failed! The provided wpsl_id %s doesn\'t belong to a store location.', 'wpsl-csv' ), $store_location['wpsl_id'] ) );
+            //     }
+            // } else {
+            //     $post_id  = '';
+            // }
+
+            // $meta_keys = array_values( array_diff( wpsl_get_field_names( false ), array( 'hours' ) ) );
+
+            // foreach ( $meta_keys as $meta_key ) {
+            //     if ( isset( $post_args[$meta_key] ) && !empty( $post_args[$meta_key] ) ) {
+            //         $this->process_location_meta( $post_id, $meta_key, $post_args[$meta_key], $add_data );
+            //     } else {
+            //         delete_post_meta( $post_id, 'wpsl_' . $meta_key );
+            //     }
+            // }
             
-            // $postID = post_exists($name);
-            // // post does not exist
-            // if($postID == 0){
-
-
-            //     $postID = wp_insert_post( $post_args, true );
+            // /*
+            //  * Check if we need to assign the store location to a categorie.
+            //  * 
+            //  * If the category field is empty, and we are updating 
+            //  * existing location data, then we remove the terms from the object.
+            //  */
+            // if ( isset( $post_args['category'] ) && $post_args['category'] ) {
+            //     $categories = explode( '|', $post_args['category'] );
+            //     wp_set_object_terms( $post_id, $categories, 'wpsl_store_category' );
+            // } else if ( !$add_data ) {
+            //     wp_set_object_terms( $post_id, NULL, 'wpsl_store_category' );
             // }
-            // else {
 
-            // }
+            echo "success";
+        }
+
+        public function get_post_args( $post_fields, $store_location ) {
+            
+            $post_args = array();
+
+            foreach ( $post_fields as $arg => $csv_header ) {
+                if ( isset( $store_location[$csv_header] ) && $store_location[$csv_header] ) {
+                    $post_args[$arg] = $store_location[$csv_header];
+                } else {
+                    $post_args[$arg] = '';
+                }
+            }
+
+            return $post_args;
+        }
+
+        public function process_location_meta( $post_id, $meta_key, $meta_value, $add_data ) {
+
+            if ( $add_data  ) {
+                add_post_meta( $post_id, 'wpsl_' . $meta_key, $meta_value );   
+            } else {
+                update_post_meta( $post_id, 'wpsl_' . $meta_key, $meta_value );                
+            }
         }
         
         public function pm_load_export_fields_dropdown()
