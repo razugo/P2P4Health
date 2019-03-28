@@ -984,12 +984,21 @@ function pm_ajax_verify_update_user(uid, button_id) {
 					'uid' : uid
 				};
 
+	var old = jQuery('#' + button_id).html;
+
 	jQuery('#' + button_id).prop('disabled', true);
+	jQuery('#' + button_id).html("...");
 
 	jQuery.post(pm_ajax_object.ajax_url, data, function(response) {
 		if(response)
 		{
 			console.log(response);
+			if(response == 1 || response == "1") {
+				jQuery('#' + button_id).html("update");
+			} else {
+				jQuery('#' + button_id).html(old);
+				alert ("something went wrong...");
+			}
 			jQuery('#' + button_id).prop('disabled', false);
 		}
 		

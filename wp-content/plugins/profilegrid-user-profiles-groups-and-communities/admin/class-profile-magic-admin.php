@@ -886,26 +886,18 @@ class Profile_Magic_Admin {
         public function profile_magic_verify_update_user() {
             $uid = filter_input(INPUT_POST, 'uid');
 
+            $csv = new WPSL_CSV_Import ;
+
             $user_info = get_userdata($uid);
             $user_meta = get_user_meta($uid);
 
             $post_args;
             $post_data;
+
+            if(post_exists($user_meta['first_name'][0]) != 0 ) {
+                $post_args['ID'] = post_exists($user_meta['first_name'][0]);
+            }  
             
-            // 'wpsl_id'     => 'ID',
-            // 'name'        => 'post_title',
-            // 'status'      => 'post_status',
-            // 'permalink'   => 'post_name',
-            // 'description' => 'post_content',
-            // 'excerpt'     => 'post_excerpt',
-            // 'author'      => 'post_author',
-            // 'date'        => 'post_date'
-
-            // var_dump($user_meta['first_name']);
-            // echo "\n" . $user_meta['first_name'] . "\n";
-            // echo post_exists($user_meta['first_name'][0]) . " ";
-
-            $post_args['ID'] = post_exists($user_meta['first_name'][0]);
             $post_args['post_title'] = $user_meta['first_name'][0];
             $post_args['post_status'] = '';
             $post_args['post_name'] = '';
@@ -913,125 +905,21 @@ class Profile_Magic_Admin {
             $post_args['post_excerpt'] = '';
             $post_args['post_author'] = wp_get_current_user();
             $post_args['post_date'] = '';
-
-            // var_dump($post_args);
             
-            $post_meta['address'] = $user_meta['pm_field_14'];
-            $post_meta['city'] = $user_meta['pm_field_32'];
-            $post_meta['state_province'] = $user_meta['pm_field_30'];
-            $post_meta['postal_code'] = $user_meta['pm_field_28'];
-            $post_meta['country'] = $user_meta['pm_field_33'];
-            $post_meta['phone'] = $user_meta['pm_field_23'];
+            $post_meta['address'] = $user_meta['pm_field_14'][0];
+            $post_meta['city'] = $user_meta['pm_field_32'][0];
+            $post_meta['state'] = $user_meta['pm_field_30'][0];
+            $post_meta['postal_code'] = $user_meta['pm_field_28'][0];
+            $post_meta['zip'] = $user_meta['pm_field_28'][0];
+            $post_meta['country'] = $user_meta['pm_field_33'][0];
+            $post_meta['phone'] = $user_meta['pm_field_23'][0];
             $post_meta['url'] = $user_info->data->user_url;
             $post_meta['profile_url'] = "/pm_profile?uid=" . $uid;
-            $post_meta['category']= $user_meta['pm_field_35'];
+            $post_meta['category']= $user_meta['pm_field_35'][0];
 
-            $add_data  = true;
-            $wpsl_id  = (isset( $post_args['ID'] ) && $post_args['ID'] != 0)? $post_args['ID'] : '';
-
-            /*
-             * Check if we need to create a new store location,
-             * or update existing location data. 
-             * 
-             * Updating existing location data requires a wpsl_id 
-             * that's assigned to a 'wpsl_stores' post type.
-             */
-            if ( !strlen( trim( $wpsl_id ) ) ) {
-                $post_args['post_type'] = 'wpsl_stores';
-
-                // If no post_status is provided, then we default to 'publish'.
-                if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
-                    $post_args['post_status'] = 'publish';
-                }
-
-                $post_id = wp_insert_post( $post_args, true );
-                echo "inserting new post" . " ";
-            } else if ( is_numeric( $wpsl_id ) ) {
-
-                /* 
-                 * Check if the imported 'wpsl_id' belongs 
-                 * to a 'wpsl_stores' post types. 
-                 * 
-                 * If this is not the case, then we create a WP_Error.
-                 */
-                if ( get_post_type( $wpsl_id ) == 'wpsl_stores' ) {
-                    $add_data = false;
-                    $post_id  = wp_update_post( $post_args, true );
-                } else {
-                    $post_id = new WP_Error( 'invalid_id', sprintf( __( 'Update failed! The provided wpsl_id %s doesn\'t belong to a store location.', 'wpsl-csv' ), $store_location['wpsl_id'] ) );
-                }
-                echo "updating post" . " ";
-            } else {
-                $post_id  = '';
-                echo "something went wrong" . " ";
-            }
-
-            // $meta_keys = array_values( array_diff( wpsl_get_field_names( false ), array( 'hours' ) ) );
-
-            // foreach ( $meta_keys as $meta_key ) {
-            //     if ( isset( $post_args[$meta_key] ) && !empty( $post_args[$meta_key] ) ) {
-            //         $this->process_location_meta( $post_id, $meta_key, $post_args[$meta_key], $add_data );
-            //     } else {
-            //         delete_post_meta( $post_id, 'wpsl_' . $meta_key );
-            //     }
-            // }
-            
-            // /*
-            //  * Check if we need to assign the store location to a categorie.
-            //  * 
-            //  * If the category field is empty, and we are updating 
-            //  * existing location data, then we remove the terms from the object.
-            //  */
-            // if ( isset( $post_args['category'] ) && $post_args['category'] ) {
-            //     $categories = explode( '|', $post_args['category'] );
-            //     wp_set_object_terms( $post_id, $categories, 'wpsl_store_category' );
-            // } else if ( !$add_data ) {
-            //     wp_set_object_terms( $post_id, NULL, 'wpsl_store_category' );
-            // }
-
-            echo "success";
+            echo $csv->insert_store($post_args, $post_meta);
 
             die;
-        }
-
-        function wpsl_wp_post_field_map() {
-
-            $wp_field_map = array(
-                'wpsl_id'     => 'ID',
-                'name'        => 'post_title',
-                'status'      => 'post_status',
-                'permalink'   => 'post_name',
-                'description' => 'post_content',
-                'excerpt'     => 'post_excerpt',
-                'author'      => 'post_author',
-                'date'        => 'post_date'
-            );
-        
-            return $wp_field_map;
-        }
-
-        public function get_post_args( $post_fields, $store_location ) {
-            
-            $post_args = array();
-
-            foreach ( $post_fields as $arg => $csv_header ) {
-                if ( isset( $store_location[$csv_header] ) && $store_location[$csv_header] ) {
-                    $post_args[$arg] = $store_location[$csv_header];
-                } else {
-                    $post_args[$arg] = '';
-                }
-            }
-
-            return $post_args;
-        }
-
-        public function process_location_meta( $post_id, $meta_key, $meta_value, $add_data ) {
-
-            if ( $add_data  ) {
-                add_post_meta( $post_id, 'wpsl_' . $meta_key, $meta_value );   
-            } else {
-                update_post_meta( $post_id, 'wpsl_' . $meta_key, $meta_value );                
-            }
         }
         
         public function pm_load_export_fields_dropdown()

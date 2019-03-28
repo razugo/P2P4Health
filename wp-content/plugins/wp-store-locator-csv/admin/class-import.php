@@ -220,9 +220,6 @@ if ( !class_exists( 'WPSL_CSV_Import' ) ) {
                 array_push( $store_locations, $sorted_csv_data );
             }
 
-            // Get the post meta fields, but remove the 'hours' field. This field requires special attention.
-            $meta_keys = array_values( array_diff( wpsl_get_field_names( false ), array( 'hours' ) ) );
-            
             // Get the fields that are used as the args for wp_insert_post / wp_update_post.
             $post_fields = array_flip( wpsl_wp_post_field_map() );
 
@@ -233,156 +230,10 @@ if ( !class_exists( 'WPSL_CSV_Import' ) ) {
                 if ( !$this->check_required_fields( $store_location ) ) {
                     continue;
                 }
-                
-                $add_data  = true;
+
+                //********** TEST CODE Capstone 2019 **********
                 $post_args = $this->get_post_args( $post_fields, $store_location );
-                $wpsl_id   = isset( $post_args['ID'] ) ? $post_args['ID'] : '';
-
-                /*
-                 * Check if we need to create a new store location,
-                 * or update existing location data. 
-                 * 
-                 * Updating existing location data requires a wpsl_id 
-                 * that's assigned to a 'wpsl_stores' post type.
-                 */
-                if ( !strlen( trim( $wpsl_id ) ) ) {
-                    $post_args['post_type'] = 'wpsl_stores';
-
-                    // If no post_status is provided, then we default to 'publish'.
-                    if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
-                        $post_args['post_status'] = 'publish';
-                    }
-
-                    $post_id = wp_insert_post( $post_args, true );
-                } else if ( is_numeric( $wpsl_id ) ) {
-
-                    /* 
-                     * Check if the imported 'wpsl_id' belongs 
-                     * to a 'wpsl_stores' post types. 
-                     * 
-                     * If this is not the case, then we create a WP_Error.
-                     */
-                    if ( get_post_type( $wpsl_id ) == 'wpsl_stores' ) {
-                        $add_data = false;
-                        $post_id  = wp_update_post( $post_args, true );
-                    } else {
-                        $post_id = new WP_Error( 'invalid_id', sprintf( __( 'Update failed! The provided wpsl_id %s doesn\'t belong to a store location.', 'wpsl-csv' ), $store_location['wpsl_id'] ) );
-                    }
-                } else {
-                    $post_id  = '';
-                }
-                
-                if ( !is_wp_error( $post_id ) && $post_id ) {
-                    
-                    /*
-                     * Save / update ( based on the $add_data true|false ) the post meta fields that 
-                     * don't require any special attention. Like the phone, fax, email, url and any 
-                     * custom fields that where added by filters.
-                     */
-                    foreach ( $meta_keys as $meta_key ) {
-                        if ( isset( $store_location[$meta_key] ) && !empty( $store_location[$meta_key] ) ) {
-                            $this->process_location_meta( $post_id, $meta_key, $store_location[$meta_key], $add_data );
-                        } else {
-                            delete_post_meta( $post_id, 'wpsl_' . $meta_key );
-                        }
-                    }
-                    
-                    /*
-                     * Check if we need to assign the store location to a categorie.
-                     * 
-                     * If the category field is empty, and we are updating 
-                     * existing location data, then we remove the terms from the object.
-                     */
-                    if ( isset( $store_location['category'] ) && $store_location['category'] ) {
-                        $categories = explode( '|', $store_location['category'] );
-                        wp_set_object_terms( $post_id, $categories, 'wpsl_store_category' );
-                    } else if ( !$add_data ) {
-                        wp_set_object_terms( $post_id, NULL, 'wpsl_store_category' );
-                    }
-
-                    /*
-                     * If we have an image, set it as the featured image.
-                     * 
-                     * Otherwise check if we are updating an existing store location.
-                     * 
-                     * If this is the case, and the 'image' field in the imported data is left empty, 
-                     * but the current post id has an existing post thumbnail, 
-                     * then we delete the old post thumbnail.                     
-                     */
-                    if ( isset( $store_location['image'] ) && $store_location['image'] ) {
-
-                        /*
-                         * If the image field contains an ID, then use it to set the post thumbnail. 
-                         * Otherwise try to download the image before setting the post thumbnail.   
-                         */
-                        if ( is_numeric( $store_location['image'] ) ) {
-                            set_post_thumbnail( $post_id, $store_location['image'] );
-                        } else {
-                            $this->set_featured_image( $post_id, $store_location['image'] );
-                        }
-                    } else if ( !$add_data && has_post_thumbnail( $post_id ) ) {
-                        delete_post_thumbnail( $post_id );
-                    }
-
-                    if ( isset( $store_location['hours'] ) && $store_location['hours'] ) {
-
-                        /*
-                         * Imported opening hours for the dropdown input need to be formated 
-                         * in a specific way before we can show them in dropdowns in the wp-admin area.
-                         */
-                        if ( $wpsl_settings['editor_hour_input'] == 'dropdown' ) {
-                            $store_location['hours'] = $this->format_opening_hours( $store_location['hours'] );
-                        }
-
-                        $this->process_location_meta( $post_id, 'hours', $store_location['hours'], $add_data );
-                    } else if ( !$wpsl_settings['hide_hours'] ) {
-
-                        /*
-                         * If no openings hour are provided, and they are not set to hidden, 
-                         * then we use the defaults from the settings page.
-                         * 
-                         * Only users who upgraded from WPSL 1.x can have the textarea option.  
-                         */
-                        if ( $wpsl_settings['editor_hour_input'] == 'dropdown' ) {
-                            $default_hours = $wpsl_settings['editor_hours']['dropdown'];
-                        } else {
-                            $default_hours = $wpsl_settings['editor_hours']['textarea'];                            
-                        }
-
-                        $this->process_location_meta( $post_id, 'hours', $default_hours, $add_data );
-                    }
-
-                    // Check if we need to geocode the provided location details before saving the geolocation data.
-                    if ( empty( $store_location['lat'] ) || empty( $store_location['lng'] ) ) {
-                        $error_response = $this->geocode_imported_data( $post_id, $store_location );
-
-                        if ( $error_response ) {                            
-                            switch ( $error_response['type'] ) {
-                                case 'zero_results':
-                                    $import_results['geocode_errors']['zero_results'][] = $error_response['msg'];
-                                    break;
-                                case 'failed':
-                                    $import_results['geocode_errors']['failed'][] = $error_response['msg'];
-                                    break;
-                            }
-                        }
-                    } else {
-                        $this->add_geolocation_meta_data( $post_id, $store_location );
-                    }
-
-                    $success_count++;
-                } else {
-                    if ( is_wp_error( $post_id ) ) {
-                        $error_msg = $post_id->get_error_message();
-                    } else {
-                        $error_msg = sprintf( __( 'Update failed! Make sure %s is a valid wpsl_id', 'wpsl-csv' ), esc_html( $wpsl_id ) );
-                    }
-
-                    $import_results['failed'][] = array(
-                        'location' => $store_location['address'] . ' ' . $store_location['city'],
-                        'msg'      => $error_msg
-                    );
-                }
+                $success_count = $success_count + $this->insert_store( $post_args, $store_location );
             } // end foreach
             
             $import_results['success'] = $success_count;
@@ -396,6 +247,165 @@ if ( !class_exists( 'WPSL_CSV_Import' ) ) {
             // If we don't force a redirect, the notices don't show up...
             wp_redirect( admin_url( $this->page ) );
             exit();
+        }
+
+        //********** TEST CODE Capstone 2019 **********
+        public function insert_store( $post_args, $store_location ) {
+            // Get the post meta fields, but remove the 'hours' field. This field requires special attention.
+            $meta_keys = array_values( array_diff( wpsl_get_field_names( false ), array( 'hours' ) ) );
+
+            $add_data  = true;
+            $wpsl_id   = isset( $post_args['ID'] ) ? $post_args['ID'] : '';
+
+            /*
+             * Check if we need to create a new store location,
+             * or update existing location data. 
+             * 
+             * Updating existing location data requires a wpsl_id 
+             * that's assigned to a 'wpsl_stores' post type.
+             */
+            if ( !strlen( trim( $wpsl_id ) ) ) {
+                $post_args['post_type'] = 'wpsl_stores';
+
+                // If no post_status is provided, then we default to 'publish'.
+                if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
+                    $post_args['post_status'] = 'publish';
+                }
+
+                $post_id = wp_insert_post( $post_args, true );
+            } else if ( is_numeric( $wpsl_id ) ) {
+
+                /* 
+                 * Check if the imported 'wpsl_id' belongs 
+                 * to a 'wpsl_stores' post types. 
+                 * 
+                 * If this is not the case, then we create a WP_Error.
+                 */
+                if ( !isset( $post_args['post_status'] ) || empty( $post_args['post_status'] ) ) {
+                    $post_args['post_status'] = 'publish';
+                }
+                if ( get_post_type( $wpsl_id ) == 'wpsl_stores' ) {
+                    $add_data = false;
+                    $post_id  = wp_update_post( $post_args, true );
+                } else {
+                    $post_id = new WP_Error( 'invalid_id', sprintf( __( 'Update failed! The provided wpsl_id %s doesn\'t belong to a store location.', 'wpsl-csv' ), $store_location['wpsl_id'] ) );
+                }
+            } else {
+                $post_id  = '';
+            }
+                        
+            if ( !is_wp_error( $post_id ) && $post_id ) {
+                
+                /*
+                 * Save / update ( based on the $add_data true|false ) the post meta fields that 
+                 * don't require any special attention. Like the phone, fax, email, url and any 
+                 * custom fields that where added by filters.
+                 */
+                foreach ( $meta_keys as $meta_key ) {
+                    if ( isset( $store_location[$meta_key] ) && !empty( $store_location[$meta_key] ) ) {
+                        $this->process_location_meta( $post_id, $meta_key, $store_location[$meta_key], $add_data );
+                    } else {
+                        delete_post_meta( $post_id, 'wpsl_' . $meta_key );
+                    }
+                }
+                
+                /*
+                 * Check if we need to assign the store location to a categorie.
+                 * 
+                 * If the category field is empty, and we are updating 
+                 * existing location data, then we remove the terms from the object.
+                 */
+                if ( isset( $store_location['category'] ) && $store_location['category'] ) {
+                    $categories = explode( '|', $store_location['category'] );
+                    wp_set_object_terms( $post_id, $categories, 'wpsl_store_category' );
+                } else if ( !$add_data ) {
+                    wp_set_object_terms( $post_id, NULL, 'wpsl_store_category' );
+                }
+
+                /*
+                 * If we have an image, set it as the featured image.
+                 * 
+                 * Otherwise check if we are updating an existing store location.
+                 * 
+                 * If this is the case, and the 'image' field in the imported data is left empty, 
+                 * but the current post id has an existing post thumbnail, 
+                 * then we delete the old post thumbnail.                     
+                 */
+                if ( isset( $store_location['image'] ) && $store_location['image'] ) {
+
+                    /*
+                     * If the image field contains an ID, then use it to set the post thumbnail. 
+                     * Otherwise try to download the image before setting the post thumbnail.   
+                     */
+                    if ( is_numeric( $store_location['image'] ) ) {
+                        set_post_thumbnail( $post_id, $store_location['image'] );
+                    } else {
+                        $this->set_featured_image( $post_id, $store_location['image'] );
+                    }
+                } else if ( !$add_data && has_post_thumbnail( $post_id ) ) {
+                    delete_post_thumbnail( $post_id );
+                }
+
+                if ( isset( $store_location['hours'] ) && $store_location['hours'] ) {
+
+                    /*
+                     * Imported opening hours for the dropdown input need to be formated 
+                     * in a specific way before we can show them in dropdowns in the wp-admin area.
+                     */
+                    if ( $wpsl_settings['editor_hour_input'] == 'dropdown' ) {
+                        $store_location['hours'] = $this->format_opening_hours( $store_location['hours'] );
+                    }
+
+                    $this->process_location_meta( $post_id, 'hours', $store_location['hours'], $add_data );
+                } else if ( !$wpsl_settings['hide_hours'] ) {
+
+                    /*
+                     * If no openings hour are provided, and they are not set to hidden, 
+                     * then we use the defaults from the settings page.
+                     * 
+                     * Only users who upgraded from WPSL 1.x can have the textarea option.  
+                     */
+                    if ( $wpsl_settings['editor_hour_input'] == 'dropdown' ) {
+                        $default_hours = $wpsl_settings['editor_hours']['dropdown'];
+                    } else {
+                        $default_hours = $wpsl_settings['editor_hours']['textarea'];                            
+                    }
+
+                    $this->process_location_meta( $post_id, 'hours', $default_hours, $add_data );
+                }
+
+                // Check if we need to geocode the provided location details before saving the geolocation data.
+                if ( empty( $store_location['lat'] ) || empty( $store_location['lng'] ) ) {
+                    $error_response = $this->geocode_imported_data( $post_id, $store_location );
+
+                    if ( $error_response ) {                            
+                        switch ( $error_response['type'] ) {
+                            case 'zero_results':
+                                $import_results['geocode_errors']['zero_results'][] = $error_response['msg'];
+                                break;
+                            case 'failed':
+                                $import_results['geocode_errors']['failed'][] = $error_response['msg'];
+                                break;
+                        }
+                    }
+                } else {
+                    $this->add_geolocation_meta_data( $post_id, $store_location );
+                }
+                return 1;
+            } else {
+
+                if ( is_wp_error( $post_id ) ) {
+                    $error_msg = $post_id->get_error_message();
+                } else {
+                    $error_msg = sprintf( __( 'Update failed! Make sure %s is a valid wpsl_id', 'wpsl-csv' ), esc_html( $wpsl_id ) );
+                }
+
+                $import_results['failed'][] = array(
+                    'location' => $store_location['address'] . ' ' . $store_location['city'],
+                    'msg'      => $error_msg
+                );
+            }
+            return 0;
         }
         
         /**
