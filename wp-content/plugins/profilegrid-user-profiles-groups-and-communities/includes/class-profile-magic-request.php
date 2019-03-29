@@ -3402,10 +3402,39 @@ class PM_request {
             $update =  update_user_meta($uid,'pm_group', $gid_array);
 
             //********** TEST CODE Capstone 2019 **********
-            if($gid == '1' || $gid == 1) {
+            if($gid == '1' || $gid == 1) { //user is patient
                 update_user_meta($uid,'pm_profile_privacy', 5);	
                 update_user_meta($uid,'pm_hide_my_profile', 1);
-            }	
+            } elseif($gid == '2' || $gid == 2) { //user is provider
+                $user_meta = get_user_meta($uid);
+
+                $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]/wp-admin/admin.php?page=pm_user_manager";
+
+                $to = "rwakugawa@gmail.com";
+                $subject = "P2P4Health Verification Required";
+    
+                $message = "
+                <html>
+                <head>
+                <title>P2P4Health Verification Required</title>
+                </head>
+                <body>
+                <h2>" . $user_meta['first_name'][0] . " just joined P2P4Health!</h2>" . "
+                <h3>Please verify this provider <a href='" . $actual_link . "'>here</a><h3>
+                <h3>Find their profile and click the verification button.</h3
+                </body>
+                </html>
+                ";
+    
+                // Always set content-type when sending HTML email
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    
+                // More headers
+                $headers .= 'From: do-not-reply@p2p4health.com' . "\r\n";
+    
+                mail($to,$subject,$message,$headers);
+            }
 
             $where = array('gid'=>$gid,'uid'=>$uid);
             $data = array('status'=>'3');

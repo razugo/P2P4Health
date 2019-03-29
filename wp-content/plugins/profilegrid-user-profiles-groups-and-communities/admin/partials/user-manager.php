@@ -290,7 +290,10 @@ $pagination = $dbhandler->pm_get_pagination($num_of_pages,$pagenum);
               
               if($button_state == 0){
                 //disabled
-                //do nothing
+                //do nothing, put empty data
+                ?>
+                <td></td>
+                <?php
               }
               else if ($button_state == 1){
                 //verify

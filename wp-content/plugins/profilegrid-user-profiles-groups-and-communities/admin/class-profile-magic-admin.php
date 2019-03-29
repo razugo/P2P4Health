@@ -919,6 +919,8 @@ class Profile_Magic_Admin {
 
             echo $csv->insert_store($post_args, $post_meta);
 
+
+
             die;
         }
         
