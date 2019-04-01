@@ -328,7 +328,7 @@ in street view mode doesn't cover the control area.
 
 #wpsl-wrap #wpsl-result-list li {
     padding: 10px;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 2px black;
     margin-left: 0;
     overflow: hidden;
     list-style: none outside none !important;

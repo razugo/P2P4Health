@@ -1350,8 +1350,12 @@ function pm_messenger_send_message(form_values) {
     //console.log(data);
 
     jQuery.post(pm_ajax_object.ajax_url, data, function (resp) {
-        console.log("response: ");
-        console.log(resp);
+        //********** TEST CODE Capstone 2019 **********
+        //console.log("send message response: " + resp);
+        if(resp == "not sent") {
+            alert("Unable to send message");
+            return;
+        }
         if (resp) {
        jQuery("#message_display_area").append(resp);
          jQuery("#message_display_area").scrollTop( jQuery("#message_display_area")[0].scrollHeight);

@@ -757,7 +757,6 @@ $('.pg-profile-tab-content:first').show();
 setTimeout(stopTimer,1400);
 $('#pg-files').css("visibility", "hidden");
 function stopTimer() {
-    console.log("timer up");
     $('#pg-files').css("visibility", "visible");
     $('#pg-files').hide();
 }

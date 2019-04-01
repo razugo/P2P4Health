@@ -43,5 +43,5 @@ function wpfm_shortcode_render($atts= null) {
 		$output_string = ob_get_contents ();
 	ob_end_clean ();
 
-	return "<h1>groupid=" . $group_id ."</h1>" .$output_string;
+	return $output_string;
 }

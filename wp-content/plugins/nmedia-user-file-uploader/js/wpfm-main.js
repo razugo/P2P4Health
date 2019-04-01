@@ -25,7 +25,6 @@ jQuery(function($){
 	$(document).on('wpfm_files_rendered', function(e) {
 
 		add_mixitup();
-		console.log("adding mixitup");
 		// setting directory to root for BC
 		WPFM.resetBC();
       	WPFM.currentDir = {id:'0',title:''};
